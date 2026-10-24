@@ -11,6 +11,8 @@ public class TestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var tempPos = transform.position;
+        tempPos.x += 0.001f;
+        transform.position = tempPos;
     }
 }
