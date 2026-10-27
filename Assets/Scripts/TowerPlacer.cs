@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Mono.Collections.Generic;
@@ -35,8 +36,12 @@ public class TowerPlacer : MonoBehaviour
 
     // TOWER PLACEMENT VARIABLES
     private bool placementMode = false;
+    
+    private bool? canPlace = null;
     private GameObject towerPlacement;
-    public List<Material> towerMaterials;
+    private Collider towerCollider;
+    private List<Material> towerMaterials;
+    
 
     void Awake()
     {
@@ -74,33 +79,53 @@ public class TowerPlacer : MonoBehaviour
             towerPlacement.transform.position = hit.point;
         
         // Should now check if it is in an acceptable place or not
+        bool newCanPlace = true;
+        if (towerCollider is not null)
+        {
+            var colliderBounds = towerCollider.bounds;
+
+            Collider[] overlapResults = new Collider[2];
+            var colliders = Physics.OverlapBoxNonAlloc(
+                colliderBounds.center, 
+                colliderBounds.extents, 
+                overlapResults, 
+                towerPlacement.transform.rotation,
+                -1,
+                QueryTriggerInteraction.Ignore);
+            
+            if (colliders > 0)
+                newCanPlace = false;
+        }
         
+        
+        UpdateTowerMaterials(newCanPlace);
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext context)
     {
-        if (placementMode && towerPlacement is not null)
+        if (placementMode && towerPlacement is not null && canPlace == true)
             AcceptPlacement();
     }
 
-    public void OnReject(InputAction.CallbackContext context)
+    private void OnReject(InputAction.CallbackContext context)
     {
         if (placementMode && towerPlacement is not null)
             RejectPlacement();
     }
 
-    public void OnRotate(InputAction.CallbackContext context)
+    private void OnRotate(InputAction.CallbackContext context)
     {
         if (placementMode && towerPlacement is not null)
             towerPlacement.transform.Rotate(0, rotateAngle, 0);
     }
     
 
-    public void EnterPlacementMode(GameObject tower)
+    private void EnterPlacementMode(GameObject tower)
     {
         placementMode = true;
 
         towerPlacement = Instantiate(tower);
+        towerCollider = towerPlacement.GetComponent<Collider>();
         
         var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
 
@@ -131,9 +156,12 @@ public class TowerPlacer : MonoBehaviour
         if (ExitedPlacement is not null)
             ExitedPlacement();
     }
-    public void AcceptPlacement()
+    private void AcceptPlacement()
     {
         placementMode = false;
+        
+        if (towerCollider is not null)
+            towerCollider.isTrigger = false;
         
         var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
         
@@ -147,7 +175,7 @@ public class TowerPlacer : MonoBehaviour
         
         ExitPlacementMode();
     }
-    public void RejectPlacement()
+    private void RejectPlacement()
     {
         placementMode = false;
         
@@ -160,6 +188,20 @@ public class TowerPlacer : MonoBehaviour
         
         ExitPlacementMode();
     }
-    
-    
+
+    private void UpdateTowerMaterials(bool newCanPlace)
+    {
+        if (canPlace == newCanPlace)
+            return;
+        
+        canPlace = newCanPlace;
+        var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
+        if (meshRenderer is not null)
+        {
+            if (canPlace == true)
+                meshRenderer.materials = Enumerable.Repeat(acceptedMaterial, towerMaterials.Count).ToArray();
+            else
+                meshRenderer.materials = Enumerable.Repeat(rejectedMaterial, towerMaterials.Count).ToArray();
+        }
+    }
 }
