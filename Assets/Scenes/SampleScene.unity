@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 314903210}
   - component: {fileID: 314903209}
   - component: {fileID: 314903208}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -550,8 +550,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fbbfb757e90aeb097c9ec84d5873c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tower: {fileID: 1616989221163430676, guid: 17542aadb02a2ad0da242fb3de6aeb8f, type: 3}
   interactDistance: 100
+  rotateAngle: 15
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  acceptedMaterial: {fileID: 2100000, guid: eaaf3342cb2084266a2a2e45b3899c60, type: 2}
+  rejectedMaterial: {fileID: 2100000, guid: 4e8bddf3db25deb388fad70dc454c494, type: 2}
+  debug: 1
+  tower: {fileID: 2671947902147688374, guid: 8f14cef651477432099538d83a3ad2ad, type: 3}
+  towerMaterials: []
 --- !u!1001 &7438133227219863078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 1905177380861596445, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429620659685328117, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using Mono.Collections.Generic;
+using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,36 +9,157 @@ using UnityEngine.Rendering;
 
 public class TowerPlacer : MonoBehaviour
 {
-    public GameObject tower;
+    // PUBLIC VARIABLES
     public float interactDistance = 100;
-    
+    public float rotateAngle = 15f;
+    public LayerMask interactableLayer;
+
+    [Header("Materials")] public Material acceptedMaterial;
+    public Material rejectedMaterial;
+
+    [Header("Debug")] public bool debug = false;
+    public GameObject tower;
+
+    // INPUT VARIABLES
     private InputAction interactAction;
-    
+    private InputAction rotateAction;
+    private InputAction rejectAction;
+
+    //PUBLIC EVENTS
+    public delegate void TemplateFunction();
+
+    public static event TemplateFunction StartedPlacement;
+    public static event TemplateFunction ExitedPlacement;
+    public static event TemplateFunction TowerPlaced;
+    public static event TemplateFunction TowerRejected;
+
+    // TOWER PLACEMENT VARIABLES
     private bool placementMode = false;
     private GameObject towerPlacement;
-    
+    public List<Material> towerMaterials;
+
+    void Awake()
+    {
+        // Initialize InputActions
+        interactAction = InputSystem.actions.FindAction("Interact");
+        rotateAction = InputSystem.actions.FindAction("Rotate");
+        rejectAction = InputSystem.actions.FindAction("Reject");
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        interactAction = InputSystem.actions.FindAction("Interact");
-        
-        interactAction.performed += InteractPressed;
-
-        towerPlacement = Instantiate(tower);
+        if (debug)
+            EnterPlacementMode(tower);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Physics.Raycast(transform.position, transform.forward * interactDistance, out RaycastHit hit);
+        if (!placementMode)
+            return;
         
+        if (towerPlacement is null)
+        {
+            Debug.LogError("In placement mode but no tower!!");
+            return;
+        }
+
+        // Send ray for next location
+        Ray ray = new Ray(transform.position, transform.forward);
+        Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactableLayer);
+        
+        // If it hits the interactableLater, it moves to the hit point
         if (hit.collider is not null)
-            if (hit.collider.CompareTag("Ground"))
             towerPlacement.transform.position = hit.point;
+        
+        // Should now check if it is in an acceptable place or not
+        
     }
 
-    void InteractPressed(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        
+        if (placementMode && towerPlacement is not null)
+            AcceptPlacement();
     }
+
+    public void OnReject(InputAction.CallbackContext context)
+    {
+        if (placementMode && towerPlacement is not null)
+            RejectPlacement();
+    }
+
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        if (placementMode && towerPlacement is not null)
+            towerPlacement.transform.Rotate(0, rotateAngle, 0);
+    }
+    
+
+    public void EnterPlacementMode(GameObject tower)
+    {
+        placementMode = true;
+
+        towerPlacement = Instantiate(tower);
+        
+        var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
+
+        if (meshRenderer is not null)
+        {
+            towerMaterials = new List<Material>(meshRenderer.materials);
+            
+            var newMaterials = Enumerable.Repeat(acceptedMaterial, towerMaterials.Count);
+            meshRenderer.materials = newMaterials.ToArray();
+        }
+        
+        // Subscribe input events
+        interactAction.performed += OnInteract;
+        rotateAction.performed += OnRotate;
+        rejectAction.performed += OnReject;
+        
+        if (StartedPlacement is not null)
+            StartedPlacement();
+    }
+
+    private void ExitPlacementMode()
+    {
+        // Remove input events
+        interactAction.performed -= OnInteract;
+        rotateAction.performed -= OnRotate;
+        rejectAction.performed -= OnReject;
+        
+        if (ExitedPlacement is not null)
+            ExitedPlacement();
+    }
+    public void AcceptPlacement()
+    {
+        placementMode = false;
+        
+        var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
+        
+        if (meshRenderer is not null) 
+            meshRenderer.materials = towerMaterials.ToArray();
+        
+        if (TowerPlaced is not null)
+            TowerPlaced();
+
+        towerPlacement = null;
+        
+        ExitPlacementMode();
+    }
+    public void RejectPlacement()
+    {
+        placementMode = false;
+        
+        Destroy(towerPlacement);
+        
+        if (TowerRejected is not null)
+            TowerRejected();
+        
+        towerPlacement = null;
+        
+        ExitPlacementMode();
+    }
+    
+    
 }
