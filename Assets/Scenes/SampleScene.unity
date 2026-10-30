@@ -670,7 +670,7 @@ MonoBehaviour:
   acceptedMaterial: {fileID: 2100000, guid: eaaf3342cb2084266a2a2e45b3899c60, type: 2}
   rejectedMaterial: {fileID: 2100000, guid: 4e8bddf3db25deb388fad70dc454c494, type: 2}
   debug: 1
-  tower: {fileID: 2671947902147688374, guid: 8f14cef651477432099538d83a3ad2ad, type: 3}
+  tower: {fileID: 1616989221163430676, guid: 17542aadb02a2ad0da242fb3de6aeb8f, type: 3}
 --- !u!1001 &7438133227219863078
 PrefabInstance:
   m_ObjectHideFlags: 0
