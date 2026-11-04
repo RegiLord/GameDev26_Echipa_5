@@ -22,7 +22,8 @@ public class Destroyable : MonoBehaviour
         }
     }
 
-    public event Action HealthChanged;
+    public delegate void HealthChangedDelegate(float health, float maxHealth);
+    public event HealthChangedDelegate HealthChanged;
     
     public void TakeDamage(float damage)
     {
@@ -30,9 +31,12 @@ public class Destroyable : MonoBehaviour
         
         health -= damage;
         if (health <= 0)
+        {
+            health = 0;
             OnDeath();
-        
-        HealthChanged?.Invoke();
+        }
+
+        HealthChanged?.Invoke(health, maxHealth);
     }
 
     protected void OnDeath()
