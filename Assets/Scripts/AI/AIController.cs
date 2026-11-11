@@ -3,15 +3,27 @@ using AI.Blackboard;
 using AI.States;
 using UnityEngine;
 
+public enum TeamID
+{
+    Player = 0,
+    Enemy1 = 1,
+    Enemy2 = 2,
+    Other = 3
+}
+
 public class AIController : MonoBehaviour
 {
     private bool startedControlling = false;
     
-    public float delay = 5.0f;
+    public float delayToStartControlling = 5.0f;
+    public TeamID teamID = 0;
     
-    private List<AIState> states;
-    private Dictionary<AIState, AIState> stateTransitions;
+    
+    private AIState startState;
     private AIState currentState;
+    private List<AIState> states = new List<AIState>();
+    
+    public AIState StartState => startState;
     
     // Blackboard containing data
     public Blackboard blackboard = new();
@@ -19,7 +31,8 @@ public class AIController : MonoBehaviour
     void Start()
     { 
         // Dont start immediately, apply a delay
-        Invoke(nameof(startControlling), delay);
+        Debug.Log("AI Controller: Starting AI Controller!");
+        Invoke(nameof(startControlling), delayToStartControlling);
     }
 
     private void startControlling()
@@ -28,18 +41,16 @@ public class AIController : MonoBehaviour
         blackboard.Set(AIKeys.MovementModule, GetComponent<MovementModule>());
         blackboard.Set(AIKeys.AttackModule, GetComponent<AttackModule>());
         
-        states = new List<AIState>();
-        states.Add(new FindEnemyState(this));
-        states.Add(new MoveToTargetState(this));
-        states.Add(new AttackTargetState(this));
+        AIState findEnemyState = new FindEnemyState(this, null);
+        AIState moveToTargetState = new MoveToTargetState(this, null);
+        AIState attackTargetState = new AttackTargetState(this, null);
         
-        currentState = states[0];
-        
-        stateTransitions = new Dictionary<AIState, AIState>();
-        
-        stateTransitions[states[0]] = states[1];
-        stateTransitions[states[1]] = states[2];
-        stateTransitions[states[2]] = states[0];
+        findEnemyState.NextState = moveToTargetState;
+        moveToTargetState.NextState = attackTargetState;
+        attackTargetState.NextState = findEnemyState;
+
+        startState = findEnemyState;
+        currentState = findEnemyState;
         
         startedControlling = true;
         currentState.EnterState();
@@ -53,23 +64,24 @@ public class AIController : MonoBehaviour
         currentState.UpdateState();
     }
 
-    public void NextState()
+    public void ChangeState(AIState newState)
     {
         if (currentState == null)
         {
             Debug.LogError("AI Controller: No AI state found when trying to move to next state!");
             return;
         }
-        
-        var nextState = stateTransitions[currentState];
 
-        if (nextState == null)
+        if (newState == null)
         {
             Debug.LogError("AI Controller: No AI state found when trying to move to next state!");
             return;
         }
-            
-        currentState = nextState;
+        
+        if (gameObject.name == "Box")
+            Debug.Log("AI Controller: Changing state to " + newState.GetType().Name);
+        
+        currentState = newState;
         currentState.EnterState();
     }
     

@@ -17,9 +17,9 @@ public class HealthModule : Module
     public bool IsDead => dead;
     
     public event Action<float, float> HealthChanged;
-    public event Action OnDeath;
+    public event Action OnDeathEvent;
     
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         if (IsDead)
             return;
@@ -31,11 +31,17 @@ public class HealthModule : Module
         {
             health = 0;
             dead = true;
-            // Momentarily a naive implementation for debugging purposes
-            Destroy(gameObject, 3.0f);
-            OnDeath?.Invoke();
+            
+            OnDeathEvent?.Invoke();
+            OnDeath();
         }
         
         HealthChanged?.Invoke(health, maxHealth);
+    }
+
+    public virtual void OnDeath()
+    {
+        // Momentarily a naive implementation for debugging purposes
+        Destroy(gameObject, 3.0f);
     }
 }

@@ -6,14 +6,14 @@ namespace AI.States
 {
     public class MoveToTargetState : AIState
     {
-        public MoveToTargetState(AIController controller) : base(controller) { }
+        public MoveToTargetState(AIController controller, AIState nextState) : base(controller, nextState) { }
 
         private MovementModule movementModule;
         private Transform target;
         
         public override void EnterState()
         {
-            if (!controller.blackboard.TryGet(AIKeys.MovementModule, out movementModule))
+            if (movementModule is null && !controller.blackboard.TryGet(AIKeys.MovementModule, out movementModule))
             {
                 Debug.LogError("AI Controller: Failed to find movement module");
                 return;
@@ -29,12 +29,23 @@ namespace AI.States
         public override void UpdateState()
         {
             if (!target || !movementModule)
-                // Aici ar trebui sa fie reset state
+            {
+                ExitState();
                 return;
-
+            }
+            
             bool arrived = movementModule.MoveTo(target.position, 2.0f);
             if (arrived)
                 ExitState();
         }
+
+        public override void ExitState()
+        {
+            if (target is null)
+                controller.ChangeState(controller.StartState);
+            base.ExitState();
+        }
+        
+        
     }
 }

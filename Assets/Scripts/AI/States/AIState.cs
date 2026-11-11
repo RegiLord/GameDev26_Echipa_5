@@ -4,11 +4,13 @@ namespace AI.States
 {
     public class AIState
     {
-        public AIController controller;
+        protected AIController controller;
+        public AIState NextState;
 
-        public AIState(AIController controller)
+        public AIState(AIController controller, AIState nextState)
         {
             this.controller = controller;
+            this.NextState = nextState;
         }
 
         public virtual void EnterState()
@@ -17,7 +19,7 @@ namespace AI.States
 
         public virtual void ExitState()
         {
-            controller.NextState();
+            controller.ChangeState(NextState);
         }
 
         public virtual void UpdateState()
