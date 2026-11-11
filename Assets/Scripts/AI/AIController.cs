@@ -16,6 +16,7 @@ public class AIController : MonoBehaviour
     private bool startedControlling = false;
     
     public float delayToStartControlling = 5.0f;
+    public float detectionRange = 10.0f;
     public TeamID teamID = 0;
     
     private AIState currentState;
@@ -31,15 +32,21 @@ public class AIController : MonoBehaviour
 
     private void startControlling()
     {
-        blackboard.Set(AIKeys.Target, null);
+        
+        blackboard.Set(AIKeys.Target, Vector3.zero);
+        blackboard.Set(AIKeys.TargetObject, null);
         blackboard.Set(AIKeys.MovementModule, GetComponent<MovementModule>());
         blackboard.Set(AIKeys.AttackModule, GetComponent<AttackModule>());
         
-        AIState findEnemyState = new();
-        AIState moveToTargetState = new();
-        AIState attackTargetState = new();
+        FindClosestEnemyInDetectionRange findEnemyState = new FindClosestEnemyInDetectionRange();
+        MoveToTargetState moveToTargetState = new MoveToTargetState();
+        AttackTargetState attackTargetState = new AttackTargetState();
         
-        findEnemyState.Initialize(this, moveToTargetState, null);
+        DelayState delayState = new DelayState();
+        
+        delayState.Initialize(this, 1.0f, findEnemyState);
+        
+        findEnemyState.Initialize(this, moveToTargetState, delayState);
         moveToTargetState.Initialize(this, attackTargetState, findEnemyState);
         attackTargetState.Initialize(this, findEnemyState, null);
         
@@ -60,10 +67,6 @@ public class AIController : MonoBehaviour
 
     public void ChangeState(AIState newState)
     {
-        if (gameObject.name == "Capsule")
-        {
-            Debug.Log("AI Controller: Changing state to " + newState.GetType().Name);
-        }
         if (currentState == null)
         {
             Debug.LogError("AI Controller: No AI state found when trying to move to next state!");
@@ -75,9 +78,6 @@ public class AIController : MonoBehaviour
             currentState = null;
             return;
         }
-        
-        if (gameObject.name == "Box")
-            Debug.Log("AI Controller: Changing state to " + newState.GetType().Name);
         
         currentState = newState;
         currentState.EnterState();

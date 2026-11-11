@@ -8,7 +8,7 @@ namespace AI.States
         
         public override void EnterState()
         {
-            controller.blackboard.TryGet(AIKeys.Target, out Transform target);
+            controller.blackboard.TryGet(AIKeys.TargetObject, out GameObject target);
             controller.blackboard.TryGet(AIKeys.AttackModule, out AttackModule attackModule);
             
             

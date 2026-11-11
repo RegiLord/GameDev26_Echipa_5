@@ -31,7 +31,13 @@ public class AttackModule : Module
     
     public void AttackTarget(GameObject target)
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        //float distance = Vector3.Distance(transform.position, target.transform.position);
+        // Temporary chance distance from position to position, to position to closest point collider
+        var collider = target.GetComponent<Collider>();
+
+        if (collider is null)
+            return;
+        float distance = Vector3.Distance(transform.position, collider.ClosestPoint(transform.position));
         
         if (distance > attackRange)
             return; // OUT OF RANGE
