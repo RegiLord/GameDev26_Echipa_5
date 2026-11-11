@@ -6,8 +6,6 @@ namespace AI.States
 {
     public class MoveToTargetState : AIState
     {
-        public MoveToTargetState(AIController controller, AIState nextState) : base(controller, nextState) { }
-
         private MovementModule movementModule;
         private Transform target;
         
@@ -30,20 +28,13 @@ namespace AI.States
         {
             if (!target || !movementModule)
             {
-                ExitState();
+                ExitState(false);
                 return;
             }
             
             bool arrived = movementModule.MoveTo(target.position, 2.0f);
             if (arrived)
-                ExitState();
-        }
-
-        public override void ExitState()
-        {
-            if (target is null)
-                controller.ChangeState(controller.StartState);
-            base.ExitState();
+                ExitState(true);
         }
         
         

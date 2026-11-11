@@ -18,12 +18,7 @@ public class AIController : MonoBehaviour
     public float delayToStartControlling = 5.0f;
     public TeamID teamID = 0;
     
-    
-    private AIState startState;
     private AIState currentState;
-    private List<AIState> states = new List<AIState>();
-    
-    public AIState StartState => startState;
     
     // Blackboard containing data
     public Blackboard blackboard = new();
@@ -31,7 +26,6 @@ public class AIController : MonoBehaviour
     void Start()
     { 
         // Dont start immediately, apply a delay
-        Debug.Log("AI Controller: Starting AI Controller!");
         Invoke(nameof(startControlling), delayToStartControlling);
     }
 
@@ -41,15 +35,14 @@ public class AIController : MonoBehaviour
         blackboard.Set(AIKeys.MovementModule, GetComponent<MovementModule>());
         blackboard.Set(AIKeys.AttackModule, GetComponent<AttackModule>());
         
-        AIState findEnemyState = new FindEnemyState(this, null);
-        AIState moveToTargetState = new MoveToTargetState(this, null);
-        AIState attackTargetState = new AttackTargetState(this, null);
+        AIState findEnemyState = new();
+        AIState moveToTargetState = new();
+        AIState attackTargetState = new();
         
-        findEnemyState.NextState = moveToTargetState;
-        moveToTargetState.NextState = attackTargetState;
-        attackTargetState.NextState = findEnemyState;
-
-        startState = findEnemyState;
+        findEnemyState.Initialize(this, moveToTargetState, null);
+        moveToTargetState.Initialize(this, attackTargetState, findEnemyState);
+        attackTargetState.Initialize(this, findEnemyState, null);
+        
         currentState = findEnemyState;
         
         startedControlling = true;
@@ -61,11 +54,16 @@ public class AIController : MonoBehaviour
         if (!startedControlling)
             return;
         
-        currentState.UpdateState();
+        if (currentState is not null)
+            currentState.UpdateState();
     }
 
     public void ChangeState(AIState newState)
     {
+        if (gameObject.name == "Capsule")
+        {
+            Debug.Log("AI Controller: Changing state to " + newState.GetType().Name);
+        }
         if (currentState == null)
         {
             Debug.LogError("AI Controller: No AI state found when trying to move to next state!");
@@ -74,7 +72,7 @@ public class AIController : MonoBehaviour
 
         if (newState == null)
         {
-            Debug.LogError("AI Controller: No AI state found when trying to move to next state!");
+            currentState = null;
             return;
         }
         

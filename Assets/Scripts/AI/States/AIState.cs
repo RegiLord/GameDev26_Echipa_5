@@ -5,21 +5,31 @@ namespace AI.States
     public class AIState
     {
         protected AIController controller;
-        public AIState NextState;
+        protected AIState trueNextState = null, falseNextState = null;
 
-        public AIState(AIController controller, AIState nextState)
+        public AIState() {}
+
+        public virtual void Initialze(AIController controller)
         {
             this.controller = controller;
-            this.NextState = nextState;
+        }
+        public virtual void Initialize(AIController controller, AIState trueNextState, AIState falseNextState)
+        {
+            this.controller = controller;
+            this.trueNextState = trueNextState;
+            this.falseNextState = falseNextState;
         }
 
         public virtual void EnterState()
         {
         }
 
-        public virtual void ExitState()
+        public virtual void ExitState(bool exitCode)
         {
-            controller.ChangeState(NextState);
+            if (exitCode)
+                controller.ChangeState(trueNextState);
+            else 
+                controller.ChangeState(falseNextState);
         }
 
         public virtual void UpdateState()

@@ -7,14 +7,16 @@ namespace AI.States
 {
     public class FindEnemyState : AIState
     {
-        public FindEnemyState(AIController controller, AIState nextState) : base(controller, nextState) { }
-        
         public override void UpdateState()
         {
             var targetTransform = GetTarget();
             
             controller.blackboard.Set(AIKeys.Target, targetTransform);
-            ExitState();
+            
+            if (targetTransform is null)
+                ExitState(false);
+            else
+                ExitState(true);
         }
 
         public virtual Transform GetTarget()

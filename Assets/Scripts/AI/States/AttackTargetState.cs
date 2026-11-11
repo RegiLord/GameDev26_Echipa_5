@@ -5,8 +5,6 @@ namespace AI.States
 {
     public class AttackTargetState : AIState
     {
-        public AttackTargetState(AIController controller, AIState nextState) : base(controller, nextState) { }
-
         
         public override void EnterState()
         {
@@ -16,7 +14,7 @@ namespace AI.States
             
             if (target && attackModule)
                 attackModule.AttackTarget(target.gameObject);
-            ExitState();
+            ExitState(true);
         }
     }
 }
