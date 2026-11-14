@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 using UnityEngine.InputSystem;
 
 public class FixedCamera : MonoBehaviour
@@ -19,6 +20,11 @@ public class FixedCamera : MonoBehaviour
     {
         _moveAction = InputSystem.actions.FindAction("Move");
         _lookAction = InputSystem.actions.FindAction("Look");
+        
+        // get focus point for raycast
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (groundPlane.Raycast(ray, out var distanceToGround)) { _focusPoint = ray.GetPoint(distanceToGround); } 
     }
 
     void Update()
@@ -26,7 +32,8 @@ public class FixedCamera : MonoBehaviour
         Vector2 lookInput = _lookAction.ReadValue<Vector2>();
 
         MoveCamera(); // camera movement pe planul XZ
-        if (Mathf.Abs(_remainingAngle) < 1f) { CheckRotation(lookInput.x); } // verifica butoanele de rotatie (Q/E) daca e basically gata o rotatie
+        if (Mathf.Abs(_remainingAngle) < 1f) 
+            CheckRotation(lookInput.x); // verifica butoanele de rotatie (Q/E) daca e basically gata o rotatie
         RotateRemaining(); // rotatia care a mai ramas
         ZoomCamera(lookInput.y); // verifica butoanele de zomm (Z/X) ale camerei
     }
@@ -37,7 +44,10 @@ public class FixedCamera : MonoBehaviour
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         
         Vector3 rotatedDirection = Quaternion.Euler(0, transform.eulerAngles.y, 0) * moveDirection;
-        transform.Translate(panSpeed * Time.deltaTime * rotatedDirection, Space.World);
+        Vector3 scaledDirection = panSpeed * Time.deltaTime * rotatedDirection;    
+        
+        transform.Translate(scaledDirection, Space.World);
+        _focusPoint += scaledDirection;
     }
 
     void CheckRotation(float rotateInput)
@@ -45,14 +55,14 @@ public class FixedCamera : MonoBehaviour
         if (_lookAction.WasPressedThisFrame())
         {
             _remainingAngle = 90f * ((rotateInput > 0.1f) ? 1f : (rotateInput < -0.1f) ? -1f : 0f);
-            if (_remainingAngle != 0f)
-            {
-                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-                Ray ray = new Ray(transform.position, transform.forward);
-
-                // if raycast hit
-                if (groundPlane.Raycast(ray, out float distanceToGround)) { _focusPoint = ray.GetPoint(distanceToGround); }
-            }
+            // if (_remainingAngle != 0f)
+            // {
+            //     Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            //     Ray ray = new Ray(transform.position, transform.forward);
+            //
+            //     // if raycast hit
+            //     if (groundPlane.Raycast(ray, out float distanceToGround)) { _focusPoint = ray.GetPoint(distanceToGround); }
+            // }
         }
     }
 
