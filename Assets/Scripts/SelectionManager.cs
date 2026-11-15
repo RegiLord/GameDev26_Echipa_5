@@ -39,13 +39,13 @@ public class SelectionManager : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Mouse.current.position.ReadValue();
-    
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             _isMouseDown = true;
             _mouseStartPos = mousePos;
         }
-    
+
         if (_isMouseDown)
         {
             if (Vector2.Distance(mousePos, _mouseStartPos) > 1 && !_isDragging)
@@ -59,16 +59,17 @@ public class SelectionManager : MonoBehaviour
                 Vector2 newPos = mousePos - _mouseStartPos;
                 selectionBox.sizeDelta = new Vector2(Mathf.Abs(newPos.x), Mathf.Abs(newPos.y));
                 selectionBox.anchoredPosition = (_mouseStartPos + mousePos) / 2;
+            
+                MultiSelect(_mouseStartPos, mousePos); 
             }
         }
 
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
-            if (_isDragging)
-                MultiSelect(_mouseStartPos, mousePos);
-            else
+            if (!_isDragging) 
                 SingleSelect(mousePos);
 
+            // Reset variables
             _isMouseDown = false;
             _isDragging = false;
             selectionBox.gameObject.SetActive(false);
@@ -103,6 +104,7 @@ public class SelectionManager : MonoBehaviour
         Vector2 max = Vector2.Max(startPos, endPos);
         Rect selectionRect = new Rect(min.x, min.y, max.x - min.x, max.y - min.y);
 
+        _currentlySelected.Clear(); 
         foreach (SelectableUnit unit in SelectableUnit.Units.Values)
         {
             Vector3 screenPos = _mainCamera.WorldToScreenPoint(unit.transform.position);
@@ -115,7 +117,6 @@ public class SelectionManager : MonoBehaviour
             else
             {
                 unit.SetLayer(_defaultLayer);
-                _currentlySelected.Remove(unit);
             }
         }
     }
