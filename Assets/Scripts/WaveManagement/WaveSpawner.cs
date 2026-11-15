@@ -21,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     [ContextMenu("Spawn Wave")]
     public void SpawnWave()
     {
+        GameObject waveParent = new GameObject("Wave" + currentWave);
         currentWave++;
         int gold = waveGold + (currentWave - 1) * goldIncreasePerWave; //gold pe wave-ul curent
         int cubeCount = gold / costPerCube;//Nr unituri alocate
@@ -43,29 +44,41 @@ public class WaveSpawner : MonoBehaviour
         {
             int group = i / 4;          // nr grupului (cate 4)
             int inGroup = i % 4;        // pozitia pe grid(al catelea este)
+            
+            Transform groupParent;
+            if (inGroup == 0)
+            {
+                GameObject g = new GameObject("Group" + group);
+                g.transform.SetParent(waveParent.transform);
+                groupParent = g.transform;
+            }
+            else
+            {
+                groupParent = waveParent.transform.GetChild(group);   // grupul deja creat
+            }
 
             float x = group * DistGrupuri + (inGroup % 2) * DistUnitati;   
-            float z = (inGroup / 2) * 1.5f;                //0 fata 1 spate(relativ momentan)
-
+            float z = (inGroup / 2) * 1.5f;//0 fata 1 spate(relativ momentan)
             Vector3 position = center + new Vector3(x, 0.5f, z);
-            SpawnCube(position);
+
+            SpawnUnit(position, groupParent);
         }
     }
     //Instantierea Uniturilor
-    void SpawnCube(Vector3 position)
+    void SpawnUnit(Vector3 position, Transform parent)
     {
-        GameObject cube;
+        GameObject unit;
 
         if (enemyPrefab != null)
         {
-            cube = Instantiate(enemyPrefab, position, Quaternion.identity);
+            unit = Instantiate(enemyPrefab, position, Quaternion.identity);
         }
         else
         {
-            cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.transform.position = position;
+            unit = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            unit.transform.position = position;
         }
-
-        cube.name = "Enemy_Wave" + currentWave;
+        unit.transform.SetParent(parent);
+        unit.name = "Enemy";
     }
 }
