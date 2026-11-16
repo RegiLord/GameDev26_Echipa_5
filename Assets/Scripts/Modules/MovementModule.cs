@@ -11,7 +11,9 @@ public class MovementModule : Module
         get => speed; 
         set => speed = value;
     }
-
+    public bool IsMoving => startedMoving;
+    public Vector3 Destination => destination;
+    
     public event Action TargetReached;
     
     private bool startedMoving = false;
