@@ -29,16 +29,4 @@ public class BasicTowerAIController : AIController
         startedControlling = true;
         currentState.EnterState();
     }
-
-    public override void ChangeState(AIState newState)
-    {
-        if (newState == null)
-        {
-            Debug.LogError("WAHAT");
-        }
-        Debug.Log("Changing state to " + newState);
-        base.ChangeState(newState);
-        
-
-    }
 }

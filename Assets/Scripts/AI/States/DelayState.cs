@@ -10,6 +10,7 @@ namespace AI.States
         public void Initialize(AIController controller, float delay, AIState nextState)
         {
             this.controller = controller;
+            this.trueNextState = nextState;
             this.falseNextState = nextState;
             this.delay = delay;    
         }
