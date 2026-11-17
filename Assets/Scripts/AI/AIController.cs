@@ -13,13 +13,13 @@ public enum TeamID
 
 public class AIController : MonoBehaviour
 {
-    private bool startedControlling = false;
+    protected bool startedControlling = false;
     
     public float delayToStartControlling = 5.0f;
     public float detectionRange = 10.0f;
     public TeamID teamID = 0;
     
-    private AIState currentState;
+    protected AIState currentState;
     
     // Blackboard containing data
     public Blackboard blackboard = new();
@@ -30,9 +30,8 @@ public class AIController : MonoBehaviour
         Invoke(nameof(startControlling), delayToStartControlling);
     }
 
-    private void startControlling()
+    protected virtual void startControlling()
     {
-        
         blackboard.Set(AIKeys.Target, Vector3.zero);
         blackboard.Set(AIKeys.TargetObject, null);
         blackboard.Set(AIKeys.MovementModule, GetComponent<MovementModule>());
@@ -65,7 +64,7 @@ public class AIController : MonoBehaviour
             currentState.UpdateState();
     }
 
-    public void ChangeState(AIState newState)
+    public virtual void ChangeState(AIState newState)
     {
         if (currentState == null)
         {

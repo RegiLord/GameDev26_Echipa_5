@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-    private Collider collider;
+    private new Collider collider;
     public Collider Coll => collider;
     
     static public Core Instance = null;

@@ -36,7 +36,6 @@ namespace AI.States
                 if (attackModule is null)
                     return;
                 stopRange = attackModule.AttackRange * 0.95f;
-                Debug.Log(stopRange);
             }
         }
 
@@ -48,10 +47,6 @@ namespace AI.States
                 ExitState(false);
                 return;
             }
-
-            Debug.Log("Unit: " + controller.transform.position +
-                      "Target: " + target +
-                      "Distance: " + Vector3.Distance(controller.transform.position, target));
             
             // If it has attack module use the attack modules stop range
             bool arrived = movementModule.MoveTo(target, stopRange);
