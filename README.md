@@ -35,3 +35,14 @@ Stagiul actual al prototipuli se află pe branch-uri separate, pe care dezvoltă
     - Este un branch mai vechi de la sprint-ul 0, nu conține încă ceva relevant, camera movementul prezent în branch va fi înlocuit de cel din GUI
     
     - Singurul lucru relevant pe acest branch este TowerPlacer script-ul care va fi mutat în proiectul principal
+
+
+## Atlassian
+[Link](https://infinitefantasy.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none&atlOrigin=eyJpIjoiYTA4YmY2YTliNjdhNDc1ZmExN2JkNTU0ZmI0Y2QzMTYiLCJwIjoiaiJ9) (S-ar putea sa nu fie accesabil)
+<img src="images/jiro.png">
+
+## Current Art
+
+<img src="images/Swordsman.png">
+
+<video src="images/hero_slash.mp4">
