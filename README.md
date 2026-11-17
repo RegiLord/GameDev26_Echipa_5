@@ -45,4 +45,4 @@ Stagiul actual al prototipuli se află pe branch-uri separate, pe care dezvoltă
 
 <img src="images/Swordsman.png">
 
-<video src="images/hero_slash.mp4">
+![HeroSlash](./images/hero_slash.gif)
