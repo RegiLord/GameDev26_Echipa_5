@@ -1,0 +1,337 @@
+{
+ "note": "Enemy counts and teaching goals are from the design bible. Spawn assignment and timings are a proposed starting point.",
+ "waves": [
+  {
+   "wave": 1,
+   "teaching_goal": "Move, attack, core protection",
+   "sectors": [
+    "N"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "GoblinGrunt",
+     "count": 6,
+     "delay_s": 0.0,
+     "interval_s": 2.2
+    }
+   ]
+  },
+  {
+   "wave": 2,
+   "teaching_goal": "Build Archer Tower",
+   "sectors": [
+    "N"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "GoblinGrunt",
+     "count": 8,
+     "delay_s": 0.0,
+     "interval_s": 1.8
+    },
+    {
+     "spawn": "Spawn_N_3",
+     "lane": "Lane_N_3",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 22.0,
+     "interval_s": 1.5
+    }
+   ]
+  },
+  {
+   "wave": 3,
+   "teaching_goal": "Ranged threat priority",
+   "sectors": [
+    "E",
+    "N"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "GoblinGrunt",
+     "count": 6,
+     "delay_s": 0.0,
+     "interval_s": 1.8
+    },
+    {
+     "spawn": "Spawn_E_1",
+     "lane": "Lane_E_1",
+     "enemy": "GoblinArcher",
+     "count": 3,
+     "delay_s": 8.0,
+     "interval_s": 2.5
+    }
+   ]
+  },
+  {
+   "wave": 4,
+   "teaching_goal": "Fast runners",
+   "sectors": [
+    "E",
+    "N"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_E_2",
+     "lane": "Lane_E_2",
+     "enemy": "CorruptedWolf",
+     "count": 3,
+     "delay_s": 0.0,
+     "interval_s": 1.2
+    },
+    {
+     "spawn": "Spawn_E_3",
+     "lane": "Lane_E_3",
+     "enemy": "CorruptedWolf",
+     "count": 2,
+     "delay_s": 4.0,
+     "interval_s": 1.2
+    },
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "GoblinGrunt",
+     "count": 6,
+     "delay_s": 6.0,
+     "interval_s": 1.8
+    }
+   ]
+  },
+  {
+   "wave": 5,
+   "teaching_goal": "Armor, equip first weapon",
+   "sectors": [
+    "N",
+    "S",
+    "W"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "SkeletonWarrior",
+     "count": 4,
+     "delay_s": 0.0,
+     "interval_s": 3.0
+    },
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 6.0,
+     "interval_s": 1.8
+    },
+    {
+     "spawn": "Spawn_W_1",
+     "lane": "Lane_W_1",
+     "enemy": "GoblinGrunt",
+     "count": 2,
+     "delay_s": 14.0,
+     "interval_s": 1.8
+    }
+   ]
+  },
+  {
+   "wave": 6,
+   "teaching_goal": "Magic Tower AoE",
+   "sectors": [
+    "E",
+    "N",
+    "S"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_2",
+     "lane": "Lane_N_2",
+     "enemy": "SkeletonWarrior",
+     "count": 5,
+     "delay_s": 0.0,
+     "interval_s": 2.6
+    },
+    {
+     "spawn": "Spawn_E_1",
+     "lane": "Lane_E_1",
+     "enemy": "GoblinArcher",
+     "count": 4,
+     "delay_s": 5.0,
+     "interval_s": 2.4
+    },
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "GoblinGrunt",
+     "count": 5,
+     "delay_s": 10.0,
+     "interval_s": 1.2
+    }
+   ]
+  },
+  {
+   "wave": 7,
+   "teaching_goal": "Tank and structure damage",
+   "sectors": [
+    "E",
+    "S"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_E_1",
+     "lane": "Lane_E_1",
+     "enemy": "OrcBrute",
+     "count": 2,
+     "delay_s": 0.0,
+     "interval_s": 9.0
+    },
+    {
+     "spawn": "Spawn_E_2",
+     "lane": "Lane_E_2",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 3.0,
+     "interval_s": 1.6
+    },
+    {
+     "spawn": "Spawn_S_2",
+     "lane": "Lane_S_2",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 12.0,
+     "interval_s": 1.6
+    }
+   ]
+  },
+  {
+   "wave": 8,
+   "teaching_goal": "Healer focus, barricade",
+   "sectors": [
+    "S",
+    "W"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "OrcBrute",
+     "count": 3,
+     "delay_s": 0.0,
+     "interval_s": 7.0
+    },
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "GoblinShaman",
+     "count": 2,
+     "delay_s": 5.0,
+     "interval_s": 8.0
+    },
+    {
+     "spawn": "Spawn_W_3",
+     "lane": "Lane_W_3",
+     "enemy": "GoblinGrunt",
+     "count": 5,
+     "delay_s": 10.0,
+     "interval_s": 1.6
+    }
+   ]
+  },
+  {
+   "wave": 9,
+   "teaching_goal": "Telegraphed elite",
+   "sectors": [
+    "E",
+    "S",
+    "W"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "OrcWarlord",
+     "count": 1,
+     "delay_s": 12.0,
+     "interval_s": 0.0
+    },
+    {
+     "spawn": "Spawn_S_2",
+     "lane": "Lane_S_2",
+     "enemy": "GoblinShaman",
+     "count": 1,
+     "delay_s": 14.0,
+     "interval_s": 0.0
+    },
+    {
+     "spawn": "Spawn_S_3",
+     "lane": "Lane_S_3",
+     "enemy": "GoblinShaman",
+     "count": 1,
+     "delay_s": 14.0,
+     "interval_s": 0.0
+    },
+    {
+     "spawn": "Spawn_S_1",
+     "lane": "Lane_S_1",
+     "enemy": "GoblinGrunt",
+     "count": 4,
+     "delay_s": 0.0,
+     "interval_s": 1.5
+    },
+    {
+     "spawn": "Spawn_W_1",
+     "lane": "Lane_W_1",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 6.0,
+     "interval_s": 1.5
+    },
+    {
+     "spawn": "Spawn_E_1",
+     "lane": "Lane_E_1",
+     "enemy": "GoblinGrunt",
+     "count": 3,
+     "delay_s": 6.0,
+     "interval_s": 1.5
+    }
+   ]
+  },
+  {
+   "wave": 10,
+   "teaching_goal": "Boss mechanics and Memory Fragment 01",
+   "sectors": [
+    "N"
+   ],
+   "groups": [
+    {
+     "spawn": "Spawn_N_1",
+     "lane": "Lane_N_1",
+     "enemy": "GraveboundWarden",
+     "count": 1,
+     "delay_s": 0.0,
+     "interval_s": 0.0
+    },
+    {
+     "spawn": "Spawn_N_2",
+     "lane": "Lane_N_2",
+     "enemy": "SkeletonWarrior",
+     "count": 1,
+     "delay_s": 0.0,
+     "interval_s": 0.0
+    },
+    {
+     "spawn": "Spawn_N_3",
+     "lane": "Lane_N_3",
+     "enemy": "SkeletonWarrior",
+     "count": 1,
+     "delay_s": 0.0,
+     "interval_s": 0.0
+    }
+   ]
+  }
+ ]
+}
