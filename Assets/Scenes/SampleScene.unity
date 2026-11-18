@@ -6107,6 +6107,7 @@ GameObject:
   - component: {fileID: 1334760689}
   - component: {fileID: 1334760688}
   - component: {fileID: 1334760687}
+  - component: {fileID: 1334760694}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Unit
@@ -6265,6 +6266,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334760685}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1334760694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334760685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f896c1635c4b79c3a944c605e45a11cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  debugMode: 0
 --- !u!1 &1385829459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6353,6 +6367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439244648}
+  - component: {fileID: 1439244649}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -6375,6 +6390,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 354062409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439244649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439244647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637a34a1f6c5fa719ae618dbf7a71b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GridManager
+  gridSize: 100
+  cellSize: 5
 --- !u!4 &1514952056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8818840208061866003, guid: 6e263a08b4b6809da9201a19ee42b84d, type: 3}

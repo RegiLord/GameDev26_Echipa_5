@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 806915155588513840}
   - component: {fileID: 3759051277099931028}
   - component: {fileID: 9133588523011257270}
+  - component: {fileID: 3043676365598886674}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Unit
@@ -1175,3 +1176,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicAnimationController
   animator: {fileID: 5046441460925758911}
+--- !u!114 &3043676365598886674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921257896897042117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f896c1635c4b79c3a944c605e45a11cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
