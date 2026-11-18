@@ -1,0 +1,596 @@
+{
+ "Barrel": {
+  "kind": "Props",
+  "note": "",
+  "size_m": [
+   0.82,
+   0.82,
+   0.9
+  ],
+  "triangles": 80,
+  "folder": "Props/Props"
+ },
+ "Bones_Pile": {
+  "kind": "Goblin camp",
+  "note": "",
+  "size_m": [
+   1.43,
+   1.21,
+   0.38
+  ],
+  "triangles": 140,
+  "folder": "Props/GoblinCamp"
+ },
+ "Boulder_A": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   5.31,
+   7.09,
+   4.34
+  ],
+  "triangles": 80,
+  "folder": "Props/Rocks"
+ },
+ "Boulder_B": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   7.25,
+   6.39,
+   6.36
+  ],
+  "triangles": 80,
+  "folder": "Props/Rocks"
+ },
+ "Boulder_C": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   6.18,
+   5.05,
+   7.03
+  ],
+  "triangles": 80,
+  "folder": "Props/Rocks"
+ },
+ "Boulder_D": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   5.81,
+   6.48,
+   6.93
+  ],
+  "triangles": 80,
+  "folder": "Props/Rocks"
+ },
+ "Brazier": {
+  "kind": "Props",
+  "note": "uses Env_Glow",
+  "size_m": [
+   0.84,
+   0.84,
+   2.28
+  ],
+  "triangles": 72,
+  "folder": "Props/Props"
+ },
+ "Broken_Pillar_A": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   1.1,
+   1.1,
+   1.2
+  ],
+  "triangles": 64,
+  "folder": "Props/Graveyard"
+ },
+ "Broken_Pillar_B": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   1.1,
+   1.1,
+   2.2
+  ],
+  "triangles": 64,
+  "folder": "Props/Graveyard"
+ },
+ "Broken_Pillar_C": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   1.1,
+   1.1,
+   3.2
+  ],
+  "triangles": 64,
+  "folder": "Props/Graveyard"
+ },
+ "BurntTree_A": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.4",
+  "size_m": [
+   1.78,
+   2.85,
+   5.52
+  ],
+  "triangles": 102,
+  "folder": "Props/Trees"
+ },
+ "BurntTree_B": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.4",
+  "size_m": [
+   4.1,
+   1.96,
+   6.68
+  ],
+  "triangles": 150,
+  "folder": "Props/Trees"
+ },
+ "BurntTree_C": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.4",
+  "size_m": [
+   2.07,
+   2.73,
+   5.8
+  ],
+  "triangles": 150,
+  "folder": "Props/Trees"
+ },
+ "Bush_A": {
+  "kind": "Vegetation",
+  "note": "",
+  "size_m": [
+   2.26,
+   2.06,
+   1.35
+  ],
+  "triangles": 40,
+  "folder": "Props/Vegetation"
+ },
+ "Bush_B": {
+  "kind": "Vegetation",
+  "note": "",
+  "size_m": [
+   2.24,
+   1.89,
+   1.25
+  ],
+  "triangles": 20,
+  "folder": "Props/Vegetation"
+ },
+ "Bush_C": {
+  "kind": "Vegetation",
+  "note": "",
+  "size_m": [
+   2.46,
+   1.82,
+   1.43
+  ],
+  "triangles": 40,
+  "folder": "Props/Vegetation"
+ },
+ "Campfire": {
+  "kind": "Goblin camp",
+  "note": "uses Env_Glow",
+  "size_m": [
+   1.81,
+   1.88,
+   1.51
+  ],
+  "triangles": 260,
+  "folder": "Props/GoblinCamp"
+ },
+ "Cliff_A": {
+  "kind": "Cliffs",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   19.99,
+   17.32,
+   25.64
+  ],
+  "triangles": 36,
+  "folder": "Props/Cliffs"
+ },
+ "Cliff_B": {
+  "kind": "Cliffs",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   19.99,
+   17.32,
+   25.55
+  ],
+  "triangles": 36,
+  "folder": "Props/Cliffs"
+ },
+ "Cliff_C": {
+  "kind": "Cliffs",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   20.0,
+   17.29,
+   25.74
+  ],
+  "triangles": 36,
+  "folder": "Props/Cliffs"
+ },
+ "Cliff_D": {
+  "kind": "Cliffs",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   19.98,
+   17.32,
+   25.7
+  ],
+  "triangles": 36,
+  "folder": "Props/Cliffs"
+ },
+ "Cliff_E": {
+  "kind": "Cliffs",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   19.99,
+   17.32,
+   25.5
+  ],
+  "triangles": 36,
+  "folder": "Props/Cliffs"
+ },
+ "Crate": {
+  "kind": "Props",
+  "note": "",
+  "size_m": [
+   0.89,
+   0.89,
+   0.87
+  ],
+  "triangles": 36,
+  "folder": "Props/Props"
+ },
+ "DeadTree_A": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   2.04,
+   2.87,
+   6.23
+  ],
+  "triangles": 126,
+  "folder": "Props/Trees"
+ },
+ "DeadTree_B": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   3.56,
+   3.05,
+   5.67
+  ],
+  "triangles": 150,
+  "folder": "Props/Trees"
+ },
+ "DeadTree_C": {
+  "kind": "Trees",
+  "note": "scale 0.7-1.3",
+  "size_m": [
+   3.33,
+   3.41,
+   5.52
+  ],
+  "triangles": 150,
+  "folder": "Props/Trees"
+ },
+ "Goblin_Tent_A": {
+  "kind": "Goblin camp",
+  "note": "door faces -Y in Blender",
+  "size_m": [
+   3.2,
+   3.2,
+   3.04
+  ],
+  "triangles": 157,
+  "folder": "Props/GoblinCamp"
+ },
+ "Goblin_Tent_B": {
+  "kind": "Goblin camp",
+  "note": "door faces -Y in Blender",
+  "size_m": [
+   3.8,
+   3.8,
+   3.54
+  ],
+  "triangles": 157,
+  "folder": "Props/GoblinCamp"
+ },
+ "Goblin_Totem_A": {
+  "kind": "Goblin camp",
+  "note": "",
+  "size_m": [
+   1.0,
+   0.35,
+   3.11
+  ],
+  "triangles": 78,
+  "folder": "Props/GoblinCamp"
+ },
+ "Goblin_Totem_B": {
+  "kind": "Goblin camp",
+  "note": "",
+  "size_m": [
+   1.0,
+   0.33,
+   3.81
+  ],
+  "triangles": 78,
+  "folder": "Props/GoblinCamp"
+ },
+ "Grave_Cross_A": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.72,
+   0.4,
+   1.3
+  ],
+  "triangles": 36,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Cross_B": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.72,
+   0.4,
+   1.3
+  ],
+  "triangles": 36,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Obelisk_A": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.8,
+   0.8,
+   1.8
+  ],
+  "triangles": 36,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Round_A": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.75,
+   0.32,
+   1.02
+  ],
+  "triangles": 36,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Round_B": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.75,
+   0.32,
+   1.02
+  ],
+  "triangles": 36,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Slab_A": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.8,
+   0.34,
+   1.0
+  ],
+  "triangles": 24,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Slab_B": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.8,
+   0.34,
+   1.0
+  ],
+  "triangles": 24,
+  "folder": "Props/Graveyard"
+ },
+ "Grave_Slab_C": {
+  "kind": "Graveyard",
+  "note": "",
+  "size_m": [
+   0.8,
+   0.34,
+   1.0
+  ],
+  "triangles": 24,
+  "folder": "Props/Graveyard"
+ },
+ "Pine_A": {
+  "kind": "Trees",
+  "note": "scale 0.75-1.6",
+  "size_m": [
+   4.55,
+   4.51,
+   9.18
+  ],
+  "triangles": 73,
+  "folder": "Props/Trees"
+ },
+ "Pine_B": {
+  "kind": "Trees",
+  "note": "scale 0.75-1.6",
+  "size_m": [
+   4.89,
+   4.87,
+   9.18
+  ],
+  "triangles": 94,
+  "folder": "Props/Trees"
+ },
+ "Pine_C": {
+  "kind": "Trees",
+  "note": "scale 0.75-1.6",
+  "size_m": [
+   4.37,
+   4.34,
+   8.28
+  ],
+  "triangles": 52,
+  "folder": "Props/Trees"
+ },
+ "Pine_D": {
+  "kind": "Trees",
+  "note": "scale 0.75-1.6",
+  "size_m": [
+   4.69,
+   4.72,
+   9.18
+  ],
+  "triangles": 73,
+  "folder": "Props/Trees"
+ },
+ "Pine_E": {
+  "kind": "Trees",
+  "note": "scale 0.75-1.6",
+  "size_m": [
+   3.81,
+   3.85,
+   9.0
+  ],
+  "triangles": 73,
+  "folder": "Props/Trees"
+ },
+ "RockSpire_A": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   4.49,
+   3.9,
+   8.44
+  ],
+  "triangles": 36,
+  "folder": "Props/Rocks"
+ },
+ "RockSpire_B": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   4.5,
+   3.9,
+   8.44
+  ],
+  "triangles": 36,
+  "folder": "Props/Rocks"
+ },
+ "RockSpire_C": {
+  "kind": "Rocks",
+  "note": "scale 0.5-1.5",
+  "size_m": [
+   4.5,
+   3.9,
+   8.35
+  ],
+  "triangles": 36,
+  "folder": "Props/Rocks"
+ },
+ "Rock_A": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   2.16,
+   1.98,
+   2.03
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Rock_B": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   2.09,
+   1.9,
+   2.14
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Rock_C": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   2.23,
+   1.48,
+   1.76
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Rock_D": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   1.75,
+   2.06,
+   2.27
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Rock_E": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   1.5,
+   1.63,
+   1.05
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Rock_F": {
+  "kind": "Rocks",
+  "note": "scale 0.3-1.2",
+  "size_m": [
+   1.53,
+   2.15,
+   1.94
+  ],
+  "triangles": 20,
+  "folder": "Props/Rocks"
+ },
+ "Soul_Lantern": {
+  "kind": "Graveyard",
+  "note": "uses Env_Glow",
+  "size_m": [
+   0.72,
+   0.31,
+   2.54
+  ],
+  "triangles": 64,
+  "folder": "Props/Graveyard"
+ },
+ "Spike_Barricade": {
+  "kind": "Goblin camp",
+  "note": "",
+  "size_m": [
+   3.0,
+   1.12,
+   1.2
+  ],
+  "triangles": 212,
+  "folder": "Props/GoblinCamp"
+ }
+}
