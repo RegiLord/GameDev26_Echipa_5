@@ -43,6 +43,12 @@ Stagiul actual al prototipuli se află pe branch-uri separate, pe care dezvoltă
     
 3. WaveManager
 
+    - Dezvoltare scripturi pentru wave-uri.
+
+    - Cuprinde momentan un script simplu de spawnare cu o structura ierarhică Wave->Group->Enemy.
+    
+    - Scriptul e bazat pe ideea de "budget-based spawning".
+
 4. TowerPlacement
     
     - Este un branch mai vechi de la sprint-ul 0, nu conține încă ceva relevant, camera movementul prezent în branch va fi înlocuit de cel din GUI
