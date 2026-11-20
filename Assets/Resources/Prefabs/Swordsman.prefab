@@ -28,7 +28,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0.3948342, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3504530131350060883}
   m_Father: {fileID: 268915038949717731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120321808044439239
@@ -222,6 +223,99 @@ Transform:
   - {fileID: 6399773376073172232}
   m_Father: {fileID: 3439019212412766388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353744150595236845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3504530131350060883}
+  - component: {fileID: 8569494625567179358}
+  - component: {fileID: 5852204922141439820}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3504530131350060883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353744150595236845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.71493405, y: 0.0000010728834, z: -0.0000003129243, w: 0.699192}
+  m_LocalPosition: {x: 0, y: 0.105, z: 0.069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7953434741658224963}
+  m_LocalEulerAnglesHint: {x: 91.274994, y: -0.0029907227, z: -0.0029907227}
+--- !u!33 &8569494625567179358
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353744150595236845}
+  m_Mesh: {fileID: -2859361071839999591, guid: fdcfa359709c5c664b16a2f65766571b, type: 3}
+--- !u!23 &5852204922141439820
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353744150595236845}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -938403198352926628, guid: fdcfa359709c5c664b16a2f65766571b, type: 3}
+  - {fileID: -3959844771319719498, guid: fdcfa359709c5c664b16a2f65766571b, type: 3}
+  - {fileID: 9117578168699145465, guid: fdcfa359709c5c664b16a2f65766571b, type: 3}
+  - {fileID: 5199858542290421689, guid: fdcfa359709c5c664b16a2f65766571b, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1588671036253213942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,13 +1122,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4126944381987898102}
   - component: {fileID: 5046441460925758911}
-  - component: {fileID: 1534111468600757101}
   - component: {fileID: 3006662333718985339}
   - component: {fileID: 3441574074396384660}
-  - component: {fileID: 806915155588513840}
   - component: {fileID: 3759051277099931028}
   - component: {fileID: 9133588523011257270}
   - component: {fileID: 3043676365598886674}
+  - component: {fileID: 6651467850870359138}
+  - component: {fileID: 4071386961503227091}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Unit
@@ -1081,20 +1175,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1534111468600757101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8921257896897042117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dae3d049f31085ec930bc3e7269816d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthModule
-  maxHealth: 100
-  health: 100
 --- !u!143 &3006662333718985339
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1133,21 +1213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementModule
   speed: 5
---- !u!114 &806915155588513840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8921257896897042117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a3d70e547bcf908bfec1527faad9d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackModule
-  attack: 20
-  attackSpeed: 1
-  attackRange: 1.25
 --- !u!114 &3759051277099931028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,3 +1254,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   debugMode: 0
+--- !u!114 &6651467850870359138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921257896897042117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85f3389b1de4c62b1f909f6fca48951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthModule
+  maxHealth: 100
+  health: 100
+--- !u!114 &4071386961503227091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921257896897042117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8b8ca87142453fba220f88169580a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackModule
+  attack: 20
+  attackSpeed: 1
+  attackRange: 2.5
