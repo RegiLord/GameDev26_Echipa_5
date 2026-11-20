@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models.meta
+guid: 3935ba4c4ca3e8cef9f1a5a49bd32361
+========
 guid: ed423784f494fddfdb9bd1f554afc1b7
+>>>>>>>> main:Assets/Scripts/TowerPlacement.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
