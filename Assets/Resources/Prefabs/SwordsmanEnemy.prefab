@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIController
   delayToStartControlling: 1
-  detectionRange: 60
+  detectionRange: 20
   teamID: 1
 --- !u!114 &6463317460397166113
 MonoBehaviour:
@@ -1094,6 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f896c1635c4b79c3a944c605e45a11cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  debugMode: 0
 --- !u!1 &8840113587950947839
 GameObject:
   m_ObjectHideFlags: 0

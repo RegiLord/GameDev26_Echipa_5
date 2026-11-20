@@ -9,7 +9,7 @@ public class BasicTowerAIController : AIController
     protected override void startControlling()
     {
         blackboard.Set(AIKeys.Target, Vector3.zero);
-        blackboard.Set(AIKeys.TargetObject, null);
+        blackboard.Set(AIKeys.TargetUnitData, null);
         blackboard.Set(AIKeys.AttackModule, GetComponent<AttackModule>());
 
         FindClosestEnemyInDetectionRange findState = new FindClosestEnemyInDetectionRange();

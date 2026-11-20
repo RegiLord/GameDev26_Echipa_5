@@ -5,24 +5,21 @@ namespace AI.States
 {
     public class FindClosestEnemyInDetectionRange : FindEnemyState
     {
-        public override (Vector3, GameObject) GetTarget()
+        public override (Vector3, UnitData) GetTarget()
         {
             // Momentan ptr demo
-            var units = GameObject.FindGameObjectsWithTag("Unit");
-
-            units = units
-                .Select(u => u.GetComponent<AIController>())
-                .Where( u => u is not null && u.teamID != controller.teamID )
-                .Select( u => u.gameObject )
-                .ToArray();
+            var units = GridManager.Instance.GetUnits(controller.transform.position, controller.detectionRange);
             
-            GameObject bestUnit = null;
+            UnitData bestUnit = null;
             Vector3 bestPoint =  Vector3.zero;
             float bestDistance = float.MaxValue;
 
-            for (int i = 0; i < units.Length; i++)
+            for (int i = 0; i < units.Count; i++)
             {
-                Collider collider = units[i].GetComponent<Collider>();
+                if (units[i].TeamID == controller.teamID)
+                    continue;
+                
+                Collider collider = units[i].Collider;
                 
                 // Cant attack something without collider
                 if (collider is null)
@@ -44,7 +41,7 @@ namespace AI.States
             }
 
             if (bestUnit is null && controller.teamID != TeamID.Player && Core.Instance is not null)
-                return (Core.Instance.Coll.ClosestPoint(controller.transform.position), Core.Instance.gameObject);
+                return (Core.Instance.Coll.ClosestPoint(controller.transform.position), Core.Instance.UnitData);
             
             // Temporary fix so units dont go up
             bestPoint.y = controller.transform.position.y;

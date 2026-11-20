@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UnitData : MonoBehaviour
@@ -21,7 +22,7 @@ public class UnitData : MonoBehaviour
         MovementModule = GetComponent<MovementModule>();    
         AIController = GetComponent<AIController>();
 
-        if (AIController == null)
+        if (AIController != null)
         {
             TeamID = AIController.teamID;
         }
@@ -36,6 +37,12 @@ public class UnitData : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (CellData != null)
+            GridManager.Instance.AddCell(CellData);
+    }
+
     void LateUpdate()
     {
         GridManager.Instance.UpdateCell(CellData);
@@ -45,4 +52,12 @@ public class UnitData : MonoBehaviour
             Debug.Log(transform.position + " -> " + "(" + CellData.x + " " + CellData.y + ")");
         }
     }
+
+    private void OnDisable()
+    {
+        if (CellData != null)
+            GridManager.Instance.RemoveCell(CellData);
+    }
+
+    
 }

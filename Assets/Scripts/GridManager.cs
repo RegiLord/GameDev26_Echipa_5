@@ -32,15 +32,14 @@ public class GridManager : MonoBehaviour
     {
         if (cellData == null)
             return;
-
+        
+        cellData.next = cellData.prev = null;
         // We add a new cell to the grid
         var index = getIndexFromPosition(cellData.UnitData.transform.position);
-
+        
         // The cell is not occupied
         if (cells[index.Item1, index.Item2] == null)
         {
-            cellData.prev = cellData.next = null;
-            
             cells[index.Item1, index.Item2] = cellData;
             
             cellData.x = index.Item1;
@@ -91,9 +90,12 @@ public class GridManager : MonoBehaviour
             return;
         }
         
+        // If there is a previous connect the previous to the next cell
         if (cellData.prev != null)
             cellData.prev.next = cellData.next;
-
+        else
+            cells[cellData.x, cellData.y] = null;
+        
         if (cellData.next != null)
         {
             cellData.next.prev = cellData.prev;
@@ -106,6 +108,30 @@ public class GridManager : MonoBehaviour
         cellData.next = cellData.prev = null;
         cellData.x = cellData.y = 0;
     }
+
+    public List<UnitData> GetUnits(Vector3 position, float detectionRange)
+    {
+        var index = getIndexFromPosition(position);
+        int gridRange = Mathf.CeilToInt(detectionRange / cellSize);
+        
+        List<UnitData> units = new List<UnitData>();
+
+        for (int i = -gridRange; i <= gridRange; i++)
+        {
+            for (int j = -gridRange; j <= gridRange; j++)
+            {
+                (int, int) newIndex = (index.Item1 + i, index.Item2 + j);
+
+                if (newIndex.Item1 < 0 || newIndex.Item2 < 0 && newIndex.Item1 >= gridSize || newIndex.Item2 >= gridSize)
+                    continue;
+
+                var cellUnits = GetUnitsInCell(cells[newIndex.Item1, newIndex.Item2]);
+                units.AddRange(cellUnits);
+            }
+        }
+        
+        return units;
+    }
     
     private (int, int) getIndexFromPosition(Vector3 position) => getIndexFromPosition(new Vector2(position.x, position.z));
     private (int, int) getIndexFromPosition(float x, float y) => getIndexFromPosition(new Vector2(x, y));
@@ -116,7 +142,7 @@ public class GridManager : MonoBehaviour
         
         (int, int) index = (gridSize / 2 + x, gridSize / 2 + y);
 
-        if (index.Item1 < 0 || index.Item2 < 0 || index.Item1 > gridSize || index.Item2 > gridSize)
+        if (index.Item1 < 0 || index.Item2 < 0 || index.Item1 >= gridSize || index.Item2 >= gridSize)
         {
             Debug.LogError($"Grid position {position} is out of range.(getIndex)");
             return (0, 0);
@@ -124,4 +150,37 @@ public class GridManager : MonoBehaviour
         
         return index;
     }
+
+    public List<UnitData> GetUnitsInCell(CellData cellData)
+    {
+        if (cellData == null) 
+            return new List<UnitData>();
+        return GetUnitsInCell(cellData.x, cellData.y);
+    }
+    public List<UnitData> GetUnitsInCell(int x, int y)
+    {
+        List<UnitData> units = new List<UnitData>();
+        
+        if (x < 0 || x >= gridSize || y < 0 || y >= gridSize) {
+            Debug.LogError($"Grid position {x},{y} is out of bounds.");
+            return null;
+        }
+        
+        if (cells[x, y] == null)
+            return units;
+        
+        var currentCell = cells[x, y];
+
+        int rep = 0;
+        while (currentCell != null)
+        {
+            units.Add(currentCell.UnitData);
+            currentCell = currentCell.next;
+            
+            Debug.Log(rep);
+            rep++;
+        }
+        
+        return units;
+    } 
 }

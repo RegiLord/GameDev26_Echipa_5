@@ -33,7 +33,7 @@ public class AIController : MonoBehaviour
     protected virtual void startControlling()
     {
         blackboard.Set(AIKeys.Target, Vector3.zero);
-        blackboard.Set(AIKeys.TargetObject, null);
+        blackboard.Set(AIKeys.TargetUnitData, null);
         blackboard.Set(AIKeys.MovementModule, GetComponent<MovementModule>());
         blackboard.Set(AIKeys.AttackModule, GetComponent<AttackModule>());
         

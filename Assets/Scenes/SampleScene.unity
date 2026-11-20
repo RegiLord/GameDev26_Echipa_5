@@ -880,6 +880,7 @@ GameObject:
   - component: {fileID: 948624318}
   - component: {fileID: 948624317}
   - component: {fileID: 948624316}
+  - component: {fileID: 948624322}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1006,6 +1007,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948624322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948624315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f896c1635c4b79c3a944c605e45a11cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  debugMode: 0
 --- !u!1001 &968611763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6124,7 +6138,7 @@ Transform:
   m_GameObject: {fileID: 1334760685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 2.56, z: 5.22}
+  m_LocalPosition: {x: 2.19, y: 2.56, z: -5.35}
   m_LocalScale: {x: 1.7336, y: 5.2056847, z: 1.7336}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6520,7 +6534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8818840208061866003, guid: 6e263a08b4b6809da9201a19ee42b84d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.02743
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 8818840208061866003, guid: 6e263a08b4b6809da9201a19ee42b84d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6528,7 +6542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8818840208061866003, guid: 6e263a08b4b6809da9201a19ee42b84d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.19983
+      value: -8.28
       objectReference: {fileID: 0}
     - target: {fileID: 8818840208061866003, guid: 6e263a08b4b6809da9201a19ee42b84d, type: 3}
       propertyPath: m_LocalRotation.w
