@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.15",
       "depth": 0,
@@ -20,7 +26,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cloud.gltfast": {
-      "version": "6.20.0",
+      "version": "6.21.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -136,6 +142,15 @@
       "dependencies": {
         "com.unity.render-pipelines.core": "17.0.3"
       }
+    },
+    "com.unity.sdk.linux-arm64": {
+      "version": "1.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot.base": "1.1.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.sdk.linux-x86_64": {
       "version": "1.1.1",
