@@ -1,15 +1,30 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
+[Serializable]
+public struct EnemyData
+{
+    public GameObject enemy;
+    public int cost;
+}
 public class WaveSpawner : MonoBehaviour
 {
+    
+    
     public int waveGold = 100;            // cat "gold" are wave-ul
     public int costPerCube = 5;           // cat costa un cub
     public int goldIncreasePerWave = 0;  // cu cat creste bugetul la fiecare wave nou
     
     public Transform spawnPoint;           
     //public float spawnRadius = 3f;        // Testare Wave ca cerc
+    
     public GameObject enemyPrefab;        
 
+    public List<EnemyData> enemyPrefabs = new();
+    public List<Transform> spawnPoints = new();
+    
     private int currentWave = 0;
 
     void Start()
@@ -24,13 +39,21 @@ public class WaveSpawner : MonoBehaviour
         GameObject waveParent = new GameObject("Wave" + currentWave);
         currentWave++;
         int gold = waveGold + (currentWave - 1) * goldIncreasePerWave; //gold pe wave-ul curent
-        int cubeCount = gold / costPerCube;//Nr unituri alocate
+
+        // STEFAN COMMENT: Trebuie schimbat ca sa suporte mai multe unituri
+
+        int cubeCount = gold / costPerCube; //Nr unituri alocate
         //TO DO: extindere pe mai multe clase de unituri cu Preturi diferite.
 
         // Setare punct implicita
         //Vector3 center = spawnPoint != null ? spawnPoint.position : transform.position;
-        
-        Vector3 center = new Vector3(0.0f, 0.0f, 0.0f);
+
+        Vector3 center = Vector3.zero;
+        if (spawnPoints.Count > 0)
+        {
+            int index = Random.Range(0, spawnPoints.Count);
+            center =  spawnPoints[index].position;
+        }
         
         Debug.Log("Wave " + currentWave + ": " + gold + " gold -> " + cubeCount + " cuburi");
 

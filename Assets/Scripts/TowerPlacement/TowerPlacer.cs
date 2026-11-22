@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 
 public class TowerPlacer : MonoBehaviour
 {
+    public static TowerPlacer Instance { get; private set; }
     // PUBLIC VARIABLES
     public float interactDistance = 100;
     public float rotateAngle = 15f;
@@ -26,6 +27,7 @@ public class TowerPlacer : MonoBehaviour
     private InputAction rotateAction;
     private InputAction rejectAction;
 
+    private Camera mainCamera;
     //PUBLIC EVENTS
     public delegate void TemplateFunction();
 
@@ -40,15 +42,24 @@ public class TowerPlacer : MonoBehaviour
     private bool? canPlace = null;
     private GameObject towerPlacement;
     private Collider towerCollider;
+    private UnitData towerData;
+    private AIController towerAI;
     private List<Material> towerMaterials;
     
 
     void Awake()
     {
+        if (Instance is null)
+            Instance = this;
+        else 
+            Destroy(this);
+        
         // Initialize InputActions
         interactAction = InputSystem.actions.FindAction("Interact");
         rotateAction = InputSystem.actions.FindAction("Rotate");
         rejectAction = InputSystem.actions.FindAction("Reject");
+        
+        mainCamera = Camera.main;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -71,7 +82,7 @@ public class TowerPlacer : MonoBehaviour
         }
 
         // Send ray for next location
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactableLayer);
         
         // If it hits the interactableLater, it moves to the hit point
@@ -123,12 +134,21 @@ public class TowerPlacer : MonoBehaviour
     private void EnterPlacementMode(GameObject tower)
     {
         placementMode = true;
+        Debug.Log("ENTERED PLACEMENT MODE");
 
         towerPlacement = Instantiate(tower);
         towerCollider = towerPlacement.GetComponent<Collider>();
+        towerData = towerPlacement.GetComponent<UnitData>();
+        towerAI = towerPlacement.GetComponent<AIController>();
+        towerData.enabled = false;
+        towerAI.enabled = false;
         
         var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
-
+        
+        
+        
+        towerMaterials = new List<Material>();
+        
         if (meshRenderer is not null)
         {
             towerMaterials = new List<Material>(meshRenderer.materials);
@@ -148,6 +168,7 @@ public class TowerPlacer : MonoBehaviour
 
     private void ExitPlacementMode()
     {
+        Debug.Log("EXITED PLACEMENT MODE");
         // Remove input events
         interactAction.performed -= OnInteract;
         rotateAction.performed -= OnRotate;
@@ -162,6 +183,9 @@ public class TowerPlacer : MonoBehaviour
         
         if (towerCollider is not null)
             towerCollider.isTrigger = false;
+        
+        towerData.enabled = false;
+        towerAI.enabled = false;
         
         var meshRenderer = towerPlacement.GetComponent<MeshRenderer>();
         

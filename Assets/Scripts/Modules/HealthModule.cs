@@ -42,6 +42,7 @@ public class HealthModule : Module
     public virtual void OnDeath()
     {
         // Momentarily a naive implementation for debugging purposes
+        Destroy(GetComponent<UnitData>());
         Destroy(gameObject, 3.0f);
     }
 }
