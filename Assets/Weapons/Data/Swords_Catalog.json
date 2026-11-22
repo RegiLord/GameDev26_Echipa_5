@@ -1,0 +1,98 @@
+{
+ "Sword_Rusted_Shortsword": {
+  "rarity": "Common",
+  "suggested_for": "goblin minions, untrained recruits",
+  "note": "short, chipped and rusty, cloth-wrapped grip",
+  "length_m": 0.74,
+  "triangles": 1584,
+  "bounds_m": [
+   0.15,
+   0.038,
+   0.737
+  ]
+ },
+ "Sword_Militia_Arming": {
+  "rarity": "Common",
+  "suggested_for": "sanctuary militia, summoned side heroes",
+  "note": "plain straight sword, leather grip, iron cross guard",
+  "length_m": 0.95,
+  "triangles": 1636,
+  "bounds_m": [
+   0.19,
+   0.052,
+   0.947
+  ]
+ },
+ "Sword_Iron_Falchion": {
+  "rarity": "Uncommon",
+  "suggested_for": "orc-hunter recruits, heavy minions",
+  "note": "broad single-edged chopper that widens toward the tip",
+  "length_m": 0.97,
+  "triangles": 1354,
+  "bounds_m": [
+   0.22,
+   0.045,
+   0.932
+  ]
+ },
+ "Sword_Sanctuary_Guard": {
+  "rarity": "Uncommon",
+  "suggested_for": "Aetherhold defenders, early unlocked heroes",
+  "note": "Aetherhold issue sword, blue enamel guard with a small cyan stone, no glow",
+  "length_m": 1.0,
+  "triangles": 1716,
+  "bounds_m": [
+   0.21,
+   0.069,
+   1.027
+  ]
+ },
+ "Sword_Knight_Longsword": {
+  "rarity": "Rare",
+  "suggested_for": "Darian Holt (sword mentor), veteran knights",
+  "note": "hand-and-a-half longsword, fuller, brass quillons and wheel pommel",
+  "length_m": 1.24,
+  "triangles": 1820,
+  "bounds_m": [
+   0.296,
+   0.043,
+   1.259
+  ]
+ },
+ "Sword_Vaelorian_Saber": {
+  "rarity": "Rare",
+  "suggested_for": "Vaelorian royal knights (arc 11-20), Seraphine's guard",
+  "note": "curved cavalry saber, gold knuckle guard, red wrapped grip and tassel",
+  "length_m": 1.0,
+  "triangles": 1466,
+  "bounds_m": [
+   0.151,
+   0.038,
+   1.157
+  ]
+ },
+ "Sword_Gravebound_Cleaver": {
+  "rarity": "Epic",
+  "suggested_for": "reward from the Gravebound Warden (wave 10)",
+  "note": "heavy dark-iron cleaver, chain-wrapped, bone pommel, faint soul-blue runes",
+  "length_m": 1.13,
+  "triangles": 1560,
+  "bounds_m": [
+   0.18,
+   0.055,
+   1.137
+  ]
+ },
+ "Sword_Ashen_Greatsword": {
+  "rarity": "Epic",
+  "suggested_for": "Vaelorian ash knights, Ashen Archbishop drop (wave 20)",
+  "note": "two-handed charred greatsword with faint ember cracks",
+  "length_m": 1.51,
+  "triangles": 1712,
+  "bounds_m": [
+   0.41,
+   0.073,
+   1.512
+  ]
+ }
+}
