@@ -1,0 +1,1638 @@
+{
+ "units": "meters",
+ "space": "Unity world, map root at origin, +Z north, +X east",
+ "start_state": "Core only. Walls, towers, gates and buildings are in Aetherhold_BuildKit.fbx.",
+ "core": {
+  "x": 0.0,
+  "y": 0,
+  "z": 0.0
+ },
+ "core_crystal": {
+  "x": 0.0,
+  "y": 7.35,
+  "z": 0.0
+ },
+ "core_dais_radius": 9.3,
+ "arena_radius": 128.0,
+ "wall_apothem": 48.0,
+ "inner_ring_radius": 20.8,
+ "camera_default": {
+  "x": 0.0,
+  "y": 99.2,
+  "z": -102.4
+ },
+ "camera_target": {
+  "x": 0.0,
+  "y": 0,
+  "z": -4.8
+ },
+ "gates": {
+  "N": {
+   "x": 0.0,
+   "y": 0,
+   "z": 48.0
+  },
+  "E": {
+   "x": 48.0,
+   "y": 0,
+   "z": 0.0
+  },
+  "S": {
+   "x": 0.0,
+   "y": 0,
+   "z": -48.0
+  },
+  "W": {
+   "x": -48.0,
+   "y": 0,
+   "z": 0.0
+  },
+  "Central": {
+   "x": 0.0,
+   "y": 0,
+   "z": 20.8
+  },
+  "Breach_SW": {
+   "x": -33.92,
+   "y": 0,
+   "z": -33.92
+  }
+ },
+ "spawns": {
+  "N_1": {
+   "x": 0.0,
+   "y": -1.918,
+   "z": 118.4,
+   "sector": "N",
+   "rift": "Rift_N_1"
+  },
+  "N_2": {
+   "x": -54.4,
+   "y": -1.577,
+   "z": 105.6,
+   "sector": "N",
+   "rift": "Rift_N_2"
+  },
+  "N_3": {
+   "x": 52.8,
+   "y": -1.611,
+   "z": 105.6,
+   "sector": "N",
+   "rift": "Rift_N_3"
+  },
+  "E_1": {
+   "x": 118.4,
+   "y": -1.273,
+   "z": 0.0,
+   "sector": "E",
+   "rift": "Rift_E_1"
+  },
+  "E_2": {
+   "x": 105.6,
+   "y": -1.271,
+   "z": 54.4,
+   "sector": "E",
+   "rift": "Rift_E_2"
+  },
+  "E_3": {
+   "x": 105.6,
+   "y": -1.55,
+   "z": -52.8,
+   "sector": "E",
+   "rift": "Rift_E_3"
+  },
+  "S_1": {
+   "x": 0.0,
+   "y": -1.249,
+   "z": -120.0,
+   "sector": "S",
+   "rift": "Rift_S_1"
+  },
+  "S_2": {
+   "x": -52.8,
+   "y": -0.045,
+   "z": -107.2,
+   "sector": "S",
+   "rift": "Rift_S_2"
+  },
+  "S_3": {
+   "x": 54.4,
+   "y": -0.855,
+   "z": -107.2,
+   "sector": "S",
+   "rift": "Rift_S_3"
+  },
+  "W_1": {
+   "x": -118.4,
+   "y": -0.677,
+   "z": 0.0,
+   "sector": "W",
+   "rift": "Rift_W_1"
+  },
+  "W_2": {
+   "x": -105.6,
+   "y": -1.164,
+   "z": 52.8,
+   "sector": "W",
+   "rift": "Rift_W_2"
+  },
+  "W_3": {
+   "x": -105.6,
+   "y": -0.508,
+   "z": -54.4,
+   "sector": "W",
+   "rift": "Rift_W_3"
+  }
+ },
+ "lanes": {
+  "N_1": {
+   "sector": "N",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 110.4,
+   "waypoints": [
+    {
+     "x": 0.0,
+     "y": -1.918,
+     "z": 118.4
+    },
+    {
+     "x": 3.2,
+     "y": -1.887,
+     "z": 99.2
+    },
+    {
+     "x": -4.8,
+     "y": -1.98,
+     "z": 80.0
+    },
+    {
+     "x": 0.0,
+     "y": -1.263,
+     "z": 64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 10.56
+    }
+   ]
+  },
+  "N_2": {
+   "sector": "N",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 122.9,
+   "waypoints": [
+    {
+     "x": -54.4,
+     "y": -1.577,
+     "z": 105.6
+    },
+    {
+     "x": -41.6,
+     "y": -1.883,
+     "z": 89.6
+    },
+    {
+     "x": -22.4,
+     "y": -2.186,
+     "z": 80.0
+    },
+    {
+     "x": -8.0,
+     "y": -1.996,
+     "z": 70.4
+    },
+    {
+     "x": 0.0,
+     "y": -1.263,
+     "z": 64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 10.56
+    }
+   ]
+  },
+  "N_3": {
+   "sector": "N",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 120.8,
+   "waypoints": [
+    {
+     "x": 52.8,
+     "y": -1.611,
+     "z": 105.6
+    },
+    {
+     "x": 38.4,
+     "y": -1.95,
+     "z": 92.8
+    },
+    {
+     "x": 20.8,
+     "y": -1.9,
+     "z": 78.4
+    },
+    {
+     "x": 8.0,
+     "y": -1.841,
+     "z": 70.4
+    },
+    {
+     "x": 0.0,
+     "y": -1.263,
+     "z": 64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 10.56
+    }
+   ]
+  },
+  "E_1": {
+   "sector": "E",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 110.3,
+   "waypoints": [
+    {
+     "x": 118.4,
+     "y": -1.273,
+     "z": 0.0
+    },
+    {
+     "x": 99.2,
+     "y": -0.747,
+     "z": -4.8
+    },
+    {
+     "x": 80.0,
+     "y": -0.439,
+     "z": 3.2
+    },
+    {
+     "x": 64.0,
+     "y": -0.324,
+     "z": 0.0
+    },
+    {
+     "x": 49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "E_2": {
+   "sector": "E",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 122.5,
+   "waypoints": [
+    {
+     "x": 105.6,
+     "y": -1.271,
+     "z": 54.4
+    },
+    {
+     "x": 89.6,
+     "y": -1.04,
+     "z": 40.0
+    },
+    {
+     "x": 78.4,
+     "y": -0.515,
+     "z": 20.8
+    },
+    {
+     "x": 70.4,
+     "y": -0.396,
+     "z": 8.0
+    },
+    {
+     "x": 64.0,
+     "y": -0.324,
+     "z": 0.0
+    },
+    {
+     "x": 49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "E_3": {
+   "sector": "E",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 120.9,
+   "waypoints": [
+    {
+     "x": 105.6,
+     "y": -1.55,
+     "z": -52.8
+    },
+    {
+     "x": 91.2,
+     "y": -1.366,
+     "z": -36.8
+    },
+    {
+     "x": 78.4,
+     "y": -1.018,
+     "z": -19.2
+    },
+    {
+     "x": 70.4,
+     "y": -0.606,
+     "z": -6.4
+    },
+    {
+     "x": 64.0,
+     "y": -0.324,
+     "z": 0.0
+    },
+    {
+     "x": 49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": 10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "S_1": {
+   "sector": "S",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 110.2,
+   "waypoints": [
+    {
+     "x": 0.0,
+     "y": -1.249,
+     "z": -120.0
+    },
+    {
+     "x": -3.2,
+     "y": -1.523,
+     "z": -105.6
+    },
+    {
+     "x": 0.0,
+     "y": -1.604,
+     "z": -94.4
+    },
+    {
+     "x": 0.0,
+     "y": -1.112,
+     "z": -83.2
+    },
+    {
+     "x": 0.0,
+     "y": -1.315,
+     "z": -73.6
+    },
+    {
+     "x": 0.0,
+     "y": -0.841,
+     "z": -64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -10.56
+    }
+   ]
+  },
+  "S_2": {
+   "sector": "S",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 138.3,
+   "waypoints": [
+    {
+     "x": -52.8,
+     "y": -0.045,
+     "z": -107.2
+    },
+    {
+     "x": -32.0,
+     "y": -0.688,
+     "z": -100.8
+    },
+    {
+     "x": -12.8,
+     "y": -1.296,
+     "z": -97.6
+    },
+    {
+     "x": 0.0,
+     "y": -1.604,
+     "z": -94.4
+    },
+    {
+     "x": 0.0,
+     "y": -1.112,
+     "z": -83.2
+    },
+    {
+     "x": 0.0,
+     "y": -1.315,
+     "z": -73.6
+    },
+    {
+     "x": 0.0,
+     "y": -0.841,
+     "z": -64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -10.56
+    }
+   ]
+  },
+  "S_3": {
+   "sector": "S",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 139.7,
+   "waypoints": [
+    {
+     "x": 54.4,
+     "y": -0.855,
+     "z": -107.2
+    },
+    {
+     "x": 33.6,
+     "y": -1.355,
+     "z": -102.4
+    },
+    {
+     "x": 12.8,
+     "y": -1.704,
+     "z": -97.6
+    },
+    {
+     "x": 0.0,
+     "y": -1.604,
+     "z": -94.4
+    },
+    {
+     "x": 0.0,
+     "y": -1.112,
+     "z": -83.2
+    },
+    {
+     "x": 0.0,
+     "y": -1.315,
+     "z": -73.6
+    },
+    {
+     "x": 0.0,
+     "y": -0.841,
+     "z": -64.0
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -49.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -35.2
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -21.6
+    },
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": -10.56
+    }
+   ]
+  },
+  "W_1": {
+   "sector": "W",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 110.5,
+   "waypoints": [
+    {
+     "x": -118.4,
+     "y": -0.677,
+     "z": 0.0
+    },
+    {
+     "x": -100.8,
+     "y": -0.877,
+     "z": 4.8
+    },
+    {
+     "x": -83.2,
+     "y": -1.047,
+     "z": -3.2
+    },
+    {
+     "x": -64.0,
+     "y": -0.743,
+     "z": 0.0
+    },
+    {
+     "x": -49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "W_2": {
+   "sector": "W",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 120.8,
+   "waypoints": [
+    {
+     "x": -105.6,
+     "y": -1.164,
+     "z": 52.8
+    },
+    {
+     "x": -92.8,
+     "y": -1.389,
+     "z": 35.2
+    },
+    {
+     "x": -80.0,
+     "y": -1.142,
+     "z": 17.6
+    },
+    {
+     "x": -70.4,
+     "y": -1.087,
+     "z": 6.4
+    },
+    {
+     "x": -64.0,
+     "y": -0.743,
+     "z": 0.0
+    },
+    {
+     "x": -49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "W_3": {
+   "sector": "W",
+   "loop": false,
+   "requires_open_breach": false,
+   "length_m": 122.1,
+   "waypoints": [
+    {
+     "x": -105.6,
+     "y": -0.508,
+     "z": -54.4
+    },
+    {
+     "x": -91.2,
+     "y": -0.403,
+     "z": -38.4
+    },
+    {
+     "x": -78.4,
+     "y": -0.906,
+     "z": -20.8
+    },
+    {
+     "x": -70.4,
+     "y": -1.104,
+     "z": -8.0
+    },
+    {
+     "x": -64.0,
+     "y": -0.743,
+     "z": 0.0
+    },
+    {
+     "x": -49.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -35.2,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -21.6,
+     "y": 0.0,
+     "z": 0.0
+    },
+    {
+     "x": -10.56,
+     "y": 0.0,
+     "z": 0.0
+    }
+   ]
+  },
+  "W_Breach": {
+   "sector": "W",
+   "loop": false,
+   "requires_open_breach": true,
+   "length_m": 138.9,
+   "waypoints": [
+    {
+     "x": -105.6,
+     "y": -0.508,
+     "z": -54.4
+    },
+    {
+     "x": -91.2,
+     "y": -0.403,
+     "z": -38.4
+    },
+    {
+     "x": -78.4,
+     "y": -0.906,
+     "z": -20.8
+    },
+    {
+     "x": -60.8,
+     "y": -0.412,
+     "z": -38.4
+    },
+    {
+     "x": -45.6,
+     "y": -0.248,
+     "z": -45.6
+    },
+    {
+     "x": -33.92,
+     "y": 0.0,
+     "z": -33.92
+    },
+    {
+     "x": -24.0,
+     "y": 0.0,
+     "z": -24.0
+    },
+    {
+     "x": -14.88,
+     "y": 0.0,
+     "z": -14.88
+    },
+    {
+     "x": -7.52,
+     "y": 0.0,
+     "z": -7.52
+    }
+   ]
+  },
+  "Ring": {
+   "sector": "Ring",
+   "loop": true,
+   "requires_open_breach": false,
+   "length_m": 450.1,
+   "waypoints": [
+    {
+     "x": 72.0,
+     "y": -0.48,
+     "z": 0.0
+    },
+    {
+     "x": 67.658,
+     "y": -0.618,
+     "z": 24.625
+    },
+    {
+     "x": 55.155,
+     "y": -1.319,
+     "z": 46.281
+    },
+    {
+     "x": 36.0,
+     "y": -1.821,
+     "z": 62.354
+    },
+    {
+     "x": 12.503,
+     "y": -1.843,
+     "z": 70.906
+    },
+    {
+     "x": -12.503,
+     "y": -2.057,
+     "z": 70.906
+    },
+    {
+     "x": -36.0,
+     "y": -1.976,
+     "z": 62.354
+    },
+    {
+     "x": -55.155,
+     "y": -1.574,
+     "z": 46.281
+    },
+    {
+     "x": -67.658,
+     "y": -1.221,
+     "z": 24.625
+    },
+    {
+     "x": -72.0,
+     "y": -1.098,
+     "z": 0.0
+    },
+    {
+     "x": -67.658,
+     "y": -0.94,
+     "z": -24.625
+    },
+    {
+     "x": -55.155,
+     "y": -0.09,
+     "z": -46.281
+    },
+    {
+     "x": -36.0,
+     "y": -0.482,
+     "z": -62.354
+    },
+    {
+     "x": -12.503,
+     "y": -1.181,
+     "z": -70.906
+    },
+    {
+     "x": 12.503,
+     "y": -1.298,
+     "z": -70.906
+    },
+    {
+     "x": 36.0,
+     "y": -1.237,
+     "z": -62.354
+    },
+    {
+     "x": 55.155,
+     "y": -1.164,
+     "z": -46.281
+    },
+    {
+     "x": 67.658,
+     "y": -1.032,
+     "z": -24.625
+    },
+    {
+     "x": 72.0,
+     "y": -0.48,
+     "z": 0.0
+    }
+   ]
+  }
+ },
+ "tower_pads": [
+  {
+   "x": -13.6,
+   "y": -1.902,
+   "z": 69.6,
+   "id": 1,
+   "name": "TowerPad_01_Archer",
+   "suggested": "Archer",
+   "sector": "N"
+  },
+  {
+   "x": 13.6,
+   "y": -1.682,
+   "z": 69.6,
+   "id": 2,
+   "name": "TowerPad_02_Archer",
+   "suggested": "Archer",
+   "sector": "N"
+  },
+  {
+   "x": -17.6,
+   "y": -2.224,
+   "z": 88.0,
+   "id": 3,
+   "name": "TowerPad_03_Magic",
+   "suggested": "Magic",
+   "sector": "N"
+  },
+  {
+   "x": 16.0,
+   "y": -1.519,
+   "z": 91.2,
+   "id": 4,
+   "name": "TowerPad_04_Archer",
+   "suggested": "Archer",
+   "sector": "N"
+  },
+  {
+   "x": 69.6,
+   "y": -0.253,
+   "z": 13.6,
+   "id": 5,
+   "name": "TowerPad_05_Archer",
+   "suggested": "Archer",
+   "sector": "E"
+  },
+  {
+   "x": 69.6,
+   "y": -0.62,
+   "z": -13.6,
+   "id": 6,
+   "name": "TowerPad_06_Archer",
+   "suggested": "Archer",
+   "sector": "E"
+  },
+  {
+   "x": 88.0,
+   "y": -0.25,
+   "z": 17.6,
+   "id": 7,
+   "name": "TowerPad_07_Magic",
+   "suggested": "Magic",
+   "sector": "E"
+  },
+  {
+   "x": 89.6,
+   "y": -0.954,
+   "z": -17.6,
+   "id": 8,
+   "name": "TowerPad_08_Archer",
+   "suggested": "Archer",
+   "sector": "E"
+  },
+  {
+   "x": -13.6,
+   "y": -0.999,
+   "z": -68.8,
+   "id": 9,
+   "name": "TowerPad_09_Archer",
+   "suggested": "Archer",
+   "sector": "S"
+  },
+  {
+   "x": 13.6,
+   "y": -1.114,
+   "z": -68.8,
+   "id": 10,
+   "name": "TowerPad_10_Archer",
+   "suggested": "Archer",
+   "sector": "S"
+  },
+  {
+   "x": -12.0,
+   "y": -0.873,
+   "z": -106.4,
+   "id": 11,
+   "name": "TowerPad_11_Magic",
+   "suggested": "Magic",
+   "sector": "S"
+  },
+  {
+   "x": 12.0,
+   "y": -1.567,
+   "z": -106.4,
+   "id": 12,
+   "name": "TowerPad_12_Archer",
+   "suggested": "Archer",
+   "sector": "S"
+  },
+  {
+   "x": -69.6,
+   "y": -0.936,
+   "z": 13.6,
+   "id": 13,
+   "name": "TowerPad_13_Archer",
+   "suggested": "Archer",
+   "sector": "W"
+  },
+  {
+   "x": -69.6,
+   "y": -0.927,
+   "z": -13.6,
+   "id": 14,
+   "name": "TowerPad_14_Archer",
+   "suggested": "Archer",
+   "sector": "W"
+  },
+  {
+   "x": -88.0,
+   "y": 0.163,
+   "z": 17.6,
+   "id": 15,
+   "name": "TowerPad_15_Magic",
+   "suggested": "Magic",
+   "sector": "W"
+  },
+  {
+   "x": -67.2,
+   "y": -0.713,
+   "z": -27.2,
+   "id": 16,
+   "name": "TowerPad_16_Archer",
+   "suggested": "Archer",
+   "sector": "W"
+  },
+  {
+   "x": 12.0,
+   "y": 0.16,
+   "z": 30.4,
+   "id": 17,
+   "name": "TowerPad_17_Magic",
+   "suggested": "Magic",
+   "sector": "Court"
+  },
+  {
+   "x": -12.0,
+   "y": 0.16,
+   "z": 30.4,
+   "id": 18,
+   "name": "TowerPad_18_Archer",
+   "suggested": "Archer",
+   "sector": "Court"
+  },
+  {
+   "x": 12.0,
+   "y": 0.16,
+   "z": -30.4,
+   "id": 19,
+   "name": "TowerPad_19_Archer",
+   "suggested": "Archer",
+   "sector": "Court"
+  },
+  {
+   "x": 30.4,
+   "y": 0.16,
+   "z": 12.0,
+   "id": 20,
+   "name": "TowerPad_20_Magic",
+   "suggested": "Magic",
+   "sector": "Court"
+  }
+ ],
+ "barricade_slots": [
+  {
+   "x": 0.0,
+   "y": -0.364,
+   "z": 58.4,
+   "name": "N_Road",
+   "yaw_deg": 90,
+   "width_m": 5.2
+  },
+  {
+   "x": 58.4,
+   "y": -0.1,
+   "z": 0.0,
+   "name": "E_Scrap",
+   "yaw_deg": 0,
+   "width_m": 5.2
+  },
+  {
+   "x": 0.0,
+   "y": -1.268,
+   "z": -69.76,
+   "name": "S_Bridge",
+   "yaw_deg": 90,
+   "width_m": 5.2
+  },
+  {
+   "x": -58.4,
+   "y": -0.226,
+   "z": 0.0,
+   "name": "W_Pass",
+   "yaw_deg": 0,
+   "width_m": 5.2
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": 26.4,
+   "name": "N_Central",
+   "yaw_deg": 90,
+   "width_m": 5.2
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": -26.4,
+   "name": "S_Inner",
+   "yaw_deg": 90,
+   "width_m": 5.2
+  },
+  {
+   "x": -39.2,
+   "y": -0.023,
+   "z": -39.2,
+   "name": "W_Breach",
+   "yaw_deg": 45,
+   "width_m": 5.2
+  }
+ ],
+ "hero_slots": [
+  {
+   "x": -10.4,
+   "y": 6.9,
+   "z": 48.0,
+   "name": "Wall_N_L",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": 10.4,
+   "y": 6.9,
+   "z": 48.0,
+   "name": "Wall_N_R",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": 48.0,
+   "y": 6.9,
+   "z": 10.4,
+   "name": "Wall_E_L",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": 48.0,
+   "y": 6.9,
+   "z": -10.4,
+   "name": "Wall_E_R",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": 10.4,
+   "y": 6.9,
+   "z": -48.0,
+   "name": "Wall_S_L",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": -10.4,
+   "y": 6.9,
+   "z": -48.0,
+   "name": "Wall_S_R",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": -48.0,
+   "y": 6.9,
+   "z": -10.4,
+   "name": "Wall_W_L",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": -48.0,
+   "y": 6.9,
+   "z": 10.4,
+   "name": "Wall_W_R",
+   "kind": "wall_ranged",
+   "requires_wall": true
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": 40.8,
+   "name": "Gate_N",
+   "kind": "gate_melee",
+   "requires_wall": false
+  },
+  {
+   "x": 40.8,
+   "y": 0.0,
+   "z": 0.0,
+   "name": "Gate_E",
+   "kind": "gate_melee",
+   "requires_wall": false
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": -40.8,
+   "name": "Gate_S",
+   "kind": "gate_melee",
+   "requires_wall": false
+  },
+  {
+   "x": -40.8,
+   "y": 0.0,
+   "z": 0.0,
+   "name": "Gate_W",
+   "kind": "gate_melee",
+   "requires_wall": false
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": 13.76,
+   "name": "Core_N",
+   "kind": "core_guard",
+   "requires_wall": false
+  },
+  {
+   "x": 13.76,
+   "y": 0.0,
+   "z": 0.0,
+   "name": "Core_E",
+   "kind": "core_guard",
+   "requires_wall": false
+  },
+  {
+   "x": 0.0,
+   "y": 0.0,
+   "z": -13.76,
+   "name": "Core_S",
+   "kind": "core_guard",
+   "requires_wall": false
+  },
+  {
+   "x": -13.76,
+   "y": 0.0,
+   "z": 0.0,
+   "name": "Core_W",
+   "kind": "core_guard",
+   "requires_wall": false
+  }
+ ],
+ "facilities": {
+  "Barracks": {
+   "x": 25.44,
+   "y": 0,
+   "z": 25.44
+  },
+  "TrainingYard": {
+   "x": 32.8,
+   "y": 0,
+   "z": 16.0
+  },
+  "Forge": {
+   "x": 25.92,
+   "y": 0,
+   "z": -25.92
+  },
+  "SupplyDepot": {
+   "x": 34.4,
+   "y": 0,
+   "z": -13.6
+  },
+  "BellTower": {
+   "x": -31.52,
+   "y": 0,
+   "z": 11.52
+  },
+  "Archive": {
+   "x": -31.2,
+   "y": 0,
+   "z": 31.2
+  },
+  "Memorial": {
+   "x": -16.96,
+   "y": 0,
+   "z": 37.12
+  },
+  "SummoningGate": {
+   "x": -31.52,
+   "y": 0,
+   "z": -12.16
+  },
+  "Infirmary": {
+   "x": -15.68,
+   "y": 0,
+   "z": -36.8
+  },
+  "Well": {
+   "x": 17.6,
+   "y": 0,
+   "z": -37.6
+  }
+ },
+ "dynamic_objects": {
+  "core_rotating": [
+   "Core_Crystal",
+   "Core_Ring_A",
+   "Core_Ring_B",
+   "Core_Shards"
+  ],
+  "core_shield_pylons": [
+   "Core_ShieldPylon_01",
+   "Core_ShieldPylon_02",
+   "Core_ShieldPylon_03",
+   "Core_ShieldPylon_04",
+   "Core_ShieldPylon_05",
+   "Core_ShieldPylon_06",
+   "Core_ShieldPylon_07",
+   "Core_ShieldPylon_08"
+  ],
+  "rifts": [
+   "Rift_N_1",
+   "Rift_N_2",
+   "Rift_N_3",
+   "Rift_E_1",
+   "Rift_E_2",
+   "Rift_E_3",
+   "Rift_S_1",
+   "Rift_S_2",
+   "Rift_S_3",
+   "Rift_W_1",
+   "Rift_W_2",
+   "Rift_W_3"
+  ],
+  "sky": "Sky_ObserverWindow"
+ },
+ "build_kit": {
+  "file": "Aetherhold_BuildKit.fbx",
+  "note": "Place at the same origin as the map. Every piece is already at its final position; enable it when the player builds it.",
+  "alternatives": [
+   [
+    "Kit_Gatehouse_E",
+    "Kit_Gatehouse_E_Ruined"
+   ],
+   [
+    "Kit_Wall_SW_Repaired",
+    "Kit_Wall_SW_Damaged"
+   ]
+  ],
+  "pieces": [
+   {
+    "name": "Gate_Central_Portcullis",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_E_Door_L",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_E_Door_R",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_E_Portcullis",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_E_ScrapBarricade",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_N_Door_L",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_N_Door_R",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_N_Portcullis",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_S_Door_L",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_S_Door_R",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_S_Portcullis",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_W_Door_L",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_W_Door_R",
+    "type": "gate_part"
+   },
+   {
+    "name": "Gate_W_Portcullis",
+    "type": "gate_part"
+   },
+   {
+    "name": "Kit_Archive",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_Barracks",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_BellTower",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_CourtProps",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_Forge",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_Gatehouse_E",
+    "type": "gatehouse"
+   },
+   {
+    "name": "Kit_Gatehouse_E_Ruined",
+    "type": "gatehouse"
+   },
+   {
+    "name": "Kit_Gatehouse_N",
+    "type": "gatehouse"
+   },
+   {
+    "name": "Kit_Gatehouse_S",
+    "type": "gatehouse"
+   },
+   {
+    "name": "Kit_Gatehouse_W",
+    "type": "gatehouse"
+   },
+   {
+    "name": "Kit_Infirmary",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_InnerRing",
+    "type": "inner_ring"
+   },
+   {
+    "name": "Kit_Memorial",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_SummoningGate",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_SupplyDepot",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_Tower_01",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_02",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_03",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_04",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_05",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_06",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_07",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_Tower_08",
+    "type": "tower"
+   },
+   {
+    "name": "Kit_TrainingYard",
+    "type": "facility"
+   },
+   {
+    "name": "Kit_Wall_E_A",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_E_B",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_NE",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_NW",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_N_A",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_N_B",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_SE",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_SW_A",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_SW_B",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_SW_Damaged",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_SW_Repaired",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_S_A",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_S_B",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_W_A",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Wall_W_B",
+    "type": "wall"
+   },
+   {
+    "name": "Kit_Well",
+    "type": "facility"
+   }
+  ]
+ }
+}
