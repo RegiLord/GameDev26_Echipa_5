@@ -100,6 +100,14 @@ public class SelectionManager : MonoBehaviour
     
     void MultiSelect(Vector2 startPos, Vector2 endPos)
     {
+        // Asta de modificat, la multi select poate selecta doar TeamID Player
+        // De asemenea sa foloseasca grid manager-ul petnru a lua unituri
+        // Cum? (Tragi un ray de la start pos la ground si endPos la ground si iei toate uniturile din acel rectangle
+        // Poti creea tu functia dupa ce intelegi grid manager-ul
+        
+        // Multi-Select sa fie doar pe Player ID + asa scapam si de acest dictionar si de taota clasa SelectableUnit
+        // Care va fi inlocuita de UnitData 
+        
         Vector2 min = Vector2.Min(startPos, endPos);
         Vector2 max = Vector2.Max(startPos, endPos);
         Rect selectionRect = new Rect(min.x, min.y, max.x - min.x, max.y - min.y);

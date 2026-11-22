@@ -176,8 +176,6 @@ public class GridManager : MonoBehaviour
         {
             units.Add(currentCell.UnitData);
             currentCell = currentCell.next;
-            
-            Debug.Log(rep);
             rep++;
         }
         
