@@ -17,6 +17,13 @@ public static class PropTools
         return Path.GetDirectoryName(Path.GetDirectoryName(p)).Replace("\\", "/");
     }
 
+    static string BuildingsFolder()
+    {
+        string[] g = AssetDatabase.FindAssets("Building_Tavern t:Model");
+        if (g.Length == 0) return null;
+        return Path.GetDirectoryName(AssetDatabase.GUIDToAssetPath(g[0])).Replace("\\", "/");
+    }
+
     static Dictionary<string, GameObject> LoadProps(string folder)
     {
         Dictionary<string, GameObject> d = new Dictionary<string, GameObject>();
@@ -41,23 +48,35 @@ public static class PropTools
     [MenuItem("Tools/Aetherhold/Link Prop Materials")]
     static void LinkMaterials()
     {
-        string folder = PropsFolder();
-        if (folder == null) { EditorUtility.DisplayDialog("Props", "Props folder not found (looking for Pine_A).", "OK"); return; }
         Material pal = FindMat("Env_Palette");
         Material glow = FindMat("Env_Glow");
         if (pal == null || glow == null) { EditorUtility.DisplayDialog("Props", "Extract the materials of Aetherhold_Wildlands.fbx first (Env_Palette and Env_Glow).", "OK"); return; }
+        Material core = FindMat("Core_Glow");
+        if (core == null)
+        {
+            core = new Material(glow);
+            core.name = "Core_Glow";
+            AssetDatabase.CreateAsset(core, Path.GetDirectoryName(AssetDatabase.GetAssetPath(glow)).Replace("\\", "/") + "/Core_Glow.mat");
+        }
+        List<string> folders = new List<string>();
+        string pf = PropsFolder();
+        string bf = BuildingsFolder();
+        if (pf != null) folders.Add(pf);
+        if (bf != null && (pf == null || !bf.StartsWith(pf))) folders.Add(bf);
+        if (folders.Count == 0) { EditorUtility.DisplayDialog("Props", "No Props or Buildings folder found.", "OK"); return; }
         int n = 0;
-        foreach (string g in AssetDatabase.FindAssets("t:Model", new[] { folder }))
+        foreach (string g in AssetDatabase.FindAssets("t:Model", folders.ToArray()))
         {
             string path = AssetDatabase.GUIDToAssetPath(g);
             ModelImporter mi = AssetImporter.GetAtPath(path) as ModelImporter;
             if (mi == null) continue;
             mi.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), "Env_Palette"), pal);
             mi.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), "Env_Glow"), glow);
+            mi.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), "Core_Glow"), core);
             mi.SaveAndReimport();
             n++;
         }
-        Debug.Log("Linked materials on " + n + " prop models in " + folder);
+        Debug.Log("Linked materials on " + n + " models in " + string.Join(", ", folders));
     }
 
     [MenuItem("Tools/Aetherhold/Replace Map Props With Prefabs")]
@@ -98,5 +117,52 @@ public static class PropTools
         }
         Undo.CollapseUndoOperations(grp);
         Debug.Log("Replaced " + n + " objects with prefab instances from " + folder);
+    }
+
+    [MenuItem("Tools/Aetherhold/Make Building Prefabs")]
+    static void MakeBuildingPrefabs()
+    {
+        string bf = BuildingsFolder();
+        if (bf == null) { EditorUtility.DisplayDialog("Buildings", "Buildings folder not found (looking for Building_Tavern).", "OK"); return; }
+        string outDir = bf + "/Prefabs";
+        if (!AssetDatabase.IsValidFolder(outDir)) AssetDatabase.CreateFolder(bf, "Prefabs");
+        int n = 0;
+        foreach (string g in AssetDatabase.FindAssets("t:Model", new[] { bf }))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(g);
+            if (!Path.GetFileName(path).StartsWith("Building_")) continue;
+            GameObject model = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            GameObject inst = (GameObject)PrefabUtility.InstantiatePrefab(model);
+            Placeable pl = inst.AddComponent<Placeable>();
+            pl.buildingId = model.name.Replace("Building_", "");
+            if (model.name == "Building_Windmill") inst.AddComponent<Spinner>();
+            if (model.name == "Building_Tavern")
+            {
+                Spinner s = inst.AddComponent<Spinner>();
+                s.targetName = "Tavern_Sign";
+                s.axisAwayFromRoot = false;
+                s.swingAngle = 6f;
+                inst.AddComponent<Producer>();
+            }
+            if (model.name == "Building_Windmill")
+            {
+                Producer p = inst.AddComponent<Producer>();
+                p.resource = "Food";
+            }
+            if (model.name == "Building_ArcherTower") inst.AddComponent<TurretAim>();
+            if (model.name == "Building_Core") inst.AddComponent<CoreIdle>();
+            foreach (MeshFilter mf in inst.GetComponentsInChildren<MeshFilter>())
+            {
+                if (mf.GetComponent<Collider>() != null) continue;
+                MeshCollider mc = mf.gameObject.AddComponent<MeshCollider>();
+                mc.sharedMesh = mf.sharedMesh;
+                mc.convex = false;
+            }
+            PrefabUtility.SaveAsPrefabAsset(inst, outDir + "/" + model.name + ".prefab");
+            UnityEngine.Object.DestroyImmediate(inst);
+            n++;
+        }
+        AssetDatabase.SaveAssets();
+        Debug.Log("Created " + n + " building prefabs in " + outDir);
     }
 }

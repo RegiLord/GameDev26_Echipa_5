@@ -14,6 +14,7 @@ public class WeaponEquip : MonoBehaviour
     public Vector3 handRot;
     public Vector3 backPos;
     public Vector3 backRot;
+    public Vector3 backSpin = new Vector3(0f, 0f, 180f);
     public bool drawOnStart = true;
     public bool inHand;
 
@@ -32,6 +33,7 @@ public class WeaponEquip : MonoBehaviour
         {
             sheath = Instantiate(sheathPrefab);
             Attach(sheath, back, backPos, backRot);
+            Spin(sheath);
         }
         if (swordPrefab != null) Equip(swordPrefab, drawOnStart);
     }
@@ -53,6 +55,11 @@ public class WeaponEquip : MonoBehaviour
         g.transform.localPosition = p;
         g.transform.localRotation = Quaternion.Euler(r);
         g.transform.localScale = Vector3.one;
+    }
+
+    void Spin(GameObject g)
+    {
+        g.transform.localRotation = Quaternion.Euler(backRot) * Quaternion.Euler(backSpin);
     }
 
     public void Equip(GameObject prefab, bool draw = true)
@@ -80,6 +87,7 @@ public class WeaponEquip : MonoBehaviour
     {
         if (sword == null || back == null) return;
         Attach(sword, back, backPos, backRot);
+        Spin(sword);
         inHand = false;
     }
 

@@ -1,0 +1,127 @@
+{
+ "Building_Tavern": {
+  "footprint_m": [
+   11.0,
+   10.3
+  ],
+  "footprint_center": [
+   0,
+   -1.1
+  ],
+  "height_m": 11.4,
+  "moving_parts": {
+   "Tavern_Sign": "swings around local X at the bracket"
+  },
+  "markers": [
+   "Tavern_Entrance",
+   "Tavern_IncomePoint"
+  ],
+  "triangles": 2348,
+  "parts": [
+   "Tavern_Body",
+   "Tavern_Sign",
+   "Tavern_SignBracket"
+  ],
+  "materials": [
+   "Env_Glow",
+   "Env_Palette"
+  ]
+ },
+ "Building_Windmill": {
+  "footprint_m": [
+   7.6,
+   12.0
+  ],
+  "footprint_center": [
+   0,
+   1.0
+  ],
+  "height_m": 18.5,
+  "moving_parts": {
+   "Windmill_Sails": "rotates around local Y (Blender) / the hub axle"
+  },
+  "markers": [
+   "Windmill_Entrance",
+   "Windmill_IncomePoint"
+  ],
+  "triangles": 2076,
+  "parts": [
+   "Windmill_Body",
+   "Windmill_Sails"
+  ],
+  "materials": [
+   "Env_Glow",
+   "Env_Palette"
+  ]
+ },
+ "Building_ArcherTower": {
+  "footprint_m": [
+   3.3,
+   3.3
+  ],
+  "footprint_center": [
+   0,
+   0
+  ],
+  "height_m": 11.45,
+  "fits_tower_pad": true,
+  "moving_parts": {
+   "ArcherTower_Head": "turret: rotate around vertical axis to aim, crossbow points -Y in Blender"
+  },
+  "markers": [
+   "ArcherTower_FirePoint",
+   "ArcherTower_ArcherSlot",
+   "ArcherTower_Entrance"
+  ],
+  "triangles": 1179,
+  "parts": [
+   "ArcherTower_Body",
+   "ArcherTower_Head"
+  ],
+  "materials": [
+   "Env_Palette"
+  ]
+ },
+ "Building_Core": {
+  "footprint_m": [
+   21.2,
+   21.2
+  ],
+  "footprint_center": [
+   0,
+   0
+  ],
+  "height_m": 10.2,
+  "moving_parts": {
+   "Core_Crystal": "spin + bob (CoreIdle.cs)",
+   "Core_Ring_A": "spin",
+   "Core_Ring_B": "spin",
+   "Core_Shards": "spin"
+  },
+  "markers": [
+   "Core_CoreCrystal",
+   "Core_HitPoint"
+  ],
+  "own_glow_material": "Core_Glow",
+  "triangles": 3054,
+  "parts": [
+   "Core_Base",
+   "Core_Crystal",
+   "Core_Ring_A",
+   "Core_Ring_B",
+   "Core_Shards",
+   "Core_ShieldPylon_01",
+   "Core_ShieldPylon_02",
+   "Core_ShieldPylon_03",
+   "Core_ShieldPylon_04",
+   "Core_ShieldPylon_05",
+   "Core_ShieldPylon_06",
+   "Core_ShieldPylon_07",
+   "Core_ShieldPylon_08"
+  ],
+  "materials": [
+   "Core_Glow",
+   "Env_Palette"
+  ]
+ }
+}

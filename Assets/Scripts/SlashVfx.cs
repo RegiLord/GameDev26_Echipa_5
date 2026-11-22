@@ -81,7 +81,7 @@ public class SlashVfx : MonoBehaviour
         if (m.HasProperty("_TintColor")) m.SetColor("_TintColor", c);
     }
 
-    void SetGlow(float v)
+    public void SetGlow(float v)
     {
         if (bladeMat != null) bladeMat.SetColor("_EmissionColor", glowColor * v);
     }
