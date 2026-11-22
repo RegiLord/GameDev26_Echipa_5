@@ -3,22 +3,7 @@ guid: dfb05fa2f5760f441883f3038c226f61
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Core_Glow
-    second: {fileID: 1255176757575228346, guid: 03c40f748c3a15d4b850b9fb2c95f439, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Env_Glow
-    second: {fileID: 3085684245782712059, guid: 65fb26aeb8ca6024d9d910b90774e110, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Env_Palette
-    second: {fileID: -1893648545764155688, guid: da3d0a689bdfa89418c35cc15af76220, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
