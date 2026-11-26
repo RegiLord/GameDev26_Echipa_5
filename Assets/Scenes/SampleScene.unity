@@ -2436,7 +2436,7 @@ MonoBehaviour:
   verticalRotationSpeed: 100
   minPitchAngle: 30
   maxPitchAngle: 85
-  zoomSpeed: 1.35
+  zoomSpeed: 7.5
   minZoomHeight: 5
   maxZoomHeight: 100
 --- !u!1001 &1794376390
@@ -119394,19 +119394,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.5
+      value: 21.65
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.3
+      value: -36.69
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659258
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2588191
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalRotation.y
@@ -119418,7 +119418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 30
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8591066860627343485, guid: 73ff2d155d1843bb89676e082dd0d936, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -130977,7 +130977,7 @@ GameObject:
   - component: {fileID: 727527464960094191}
   - component: {fileID: 3851150461046929278}
   - component: {fileID: 8191745734977132171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

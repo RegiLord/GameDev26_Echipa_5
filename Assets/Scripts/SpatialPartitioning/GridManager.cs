@@ -133,6 +133,34 @@ public class GridManager : MonoBehaviour
         return units;
     }
     
+    public List<UnitData> GetUnits(Vector3 point1, Vector3 point2)
+    {
+        var index1 = getIndexFromPosition(point1);
+        var index2 = getIndexFromPosition(point2);
+
+        if (index1.Item1 > index2.Item1) (index1.Item1, index2.Item1) = (index2.Item1, index1.Item1);
+        if (index1.Item2 > index2.Item2) (index1.Item2, index2.Item2) = (index2.Item2, index1.Item2);
+        
+        List<UnitData> units = new List<UnitData>();
+        for (int i = index1.Item1; i <= index2.Item1; i++)
+        {
+            for (int j = index1.Item1; j <= index2.Item2; j++)
+            {
+                var newIndex = (i, j);
+
+                if (newIndex.Item1 < 0 || newIndex.Item2 < 0 && newIndex.Item1 >= gridSize || newIndex.Item2 >= gridSize)
+                    continue;
+
+                var cellUnits = GetUnitsInCell(cells[newIndex.Item1, newIndex.Item2]);
+                units.AddRange(cellUnits);
+            }
+        }
+        
+        return units;
+    }
+    
+    
+    
     private (int, int) getIndexFromPosition(Vector3 position) => getIndexFromPosition(new Vector2(position.x, position.z));
     private (int, int) getIndexFromPosition(float x, float y) => getIndexFromPosition(new Vector2(x, y));
     private (int, int) getIndexFromPosition(Vector2 position)

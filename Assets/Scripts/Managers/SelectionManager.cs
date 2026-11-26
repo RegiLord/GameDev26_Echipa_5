@@ -8,14 +8,14 @@ public class SelectionManager : MonoBehaviour
     
     public RectTransform selectionBox;
     
-    private int _outlineLayer, _defaultLayer;
+    private int _outlineLayer, _groundLayer, _defaultLayer;
     private Camera _mainCamera;
 
     private bool _isMouseDown, _isDragging;
     private Vector2 _mouseStartPos;
 
-    private readonly List<SelectableUnit> _currentlySelected = new();
-
+    private readonly List<UnitData> _currentlySelected = new();
+    private Vector3 _dragStartPos;
     
     
     // event functions
@@ -34,6 +34,7 @@ public class SelectionManager : MonoBehaviour
         _mainCamera = Camera.main;
         _outlineLayer = LayerMask.NameToLayer("Outline");
         _defaultLayer = LayerMask.NameToLayer("Default");
+        _groundLayer = LayerMask.NameToLayer("Ground");
     }
 
     void Update()
@@ -52,6 +53,10 @@ public class SelectionManager : MonoBehaviour
             {
                 _isDragging = true;
                 selectionBox.gameObject.SetActive(true);
+                
+                Ray ray = _mainCamera.ScreenPointToRay(_mouseStartPos);
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 1 << _groundLayer))
+                    _dragStartPos = hit.point;
             }
 
             if (_isDragging)
@@ -60,7 +65,7 @@ public class SelectionManager : MonoBehaviour
                 selectionBox.sizeDelta = new Vector2(Mathf.Abs(newPos.x), Mathf.Abs(newPos.y));
                 selectionBox.anchoredPosition = (_mouseStartPos + mousePos) / 2;
             
-                MultiSelect(_mouseStartPos, mousePos); 
+                MultiSelect(mousePos); 
             }
         }
 
@@ -72,6 +77,7 @@ public class SelectionManager : MonoBehaviour
             // Reset variables
             _isMouseDown = false;
             _isDragging = false;
+            _dragStartPos = Vector3.zero;
             selectionBox.gameObject.SetActive(false);
         }
     }
@@ -81,51 +87,82 @@ public class SelectionManager : MonoBehaviour
     // regular functions
     void SingleSelect(Vector2 mousePos)
     {
-        foreach (SelectableUnit un in _currentlySelected)
-        {
-            un.SetLayer(un.OriginalLayer);
-        }
-        _currentlySelected.Clear();
+        ClearSelected();
 
         Ray ray = _mainCamera.ScreenPointToRay(mousePos);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 1 << _defaultLayer))
+        if (Physics.Raycast(ray, out RaycastHit hit)) //, Mathf.Infinity, 1 << _defaultLayer
         {
-            if (SelectableUnit.Units.TryGetValue(hit.collider.gameObject.GetInstanceID(), out SelectableUnit unit))
+            if (hit.collider.gameObject.TryGetComponent(out UnitData ud))
             {
-                unit.SetLayer(_outlineLayer);
-                _currentlySelected.Add(unit);
+                if (ud.TeamID == TeamID.Player)
+                {
+                    ud.SetLayer(_outlineLayer);
+                    _currentlySelected.Add(ud);
+                }
             }
         }
     }
-    
-    void MultiSelect(Vector2 startPos, Vector2 endPos)
+        
+    void MultiSelect(Vector2 endPos)
     {
         // Asta de modificat, la multi select poate selecta doar TeamID Player
         // De asemenea sa foloseasca grid manager-ul petnru a lua unituri
         // Cum? (Tragi un ray de la start pos la ground si endPos la ground si iei toate uniturile din acel rectangle
         // Poti creea tu functia dupa ce intelegi grid manager-ul
-        
+    
         // Multi-Select sa fie doar pe Player ID + asa scapam si de acest dictionar si de taota clasa SelectableUnit
         // Care va fi inlocuita de UnitData 
         
-        Vector2 min = Vector2.Min(startPos, endPos);
-        Vector2 max = Vector2.Max(startPos, endPos);
-        Rect selectionRect = new Rect(min.x, min.y, max.x - min.x, max.y - min.y);
+        Vector3 dragEndPos = Vector3.zero;
+        Ray ray = _mainCamera.ScreenPointToRay(endPos);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 1 << _groundLayer))
+            dragEndPos = hit.point;
+        
+        Vector3 min = Vector3.Min(_dragStartPos, dragEndPos);
+        Vector3 max = Vector3.Max(_dragStartPos, dragEndPos);
+        min.y -= 10f; max.y += 10f;
 
-        _currentlySelected.Clear(); 
-        foreach (SelectableUnit unit in SelectableUnit.Units.Values)
+        Bounds selectionBounds = new Bounds();
+        selectionBounds.SetMinMax(min, max);
+    
+        //Debug.Log($"Selection: {_dragStartPos} -> {dragEndPos}");
+
+        ClearSelected();
+        var units = GridManager.Instance.GetUnits(_dragStartPos, dragEndPos);
+
+        foreach (UnitData ud in units)
         {
-            Vector3 screenPos = _mainCamera.WorldToScreenPoint(unit.transform.position);
+            if (ud.TeamID != TeamID.Player) continue;
 
-            if (screenPos.z > 0 && selectionRect.Contains(new Vector2(screenPos.x, screenPos.y)))
+            if (ud.TryGetComponent(out Collider col) && selectionBounds.Intersects(col.bounds))
             {
-                unit.SetLayer(_outlineLayer);
-                _currentlySelected.Add(unit);
-            }
-            else
-            {
-                unit.SetLayer(_defaultLayer);
+                ud.SetLayer(_outlineLayer);
+                _currentlySelected.Add(ud);
             }
         }
+    
+        // foreach (SelectableUnit unit in SelectableUnit.Units.Values)
+        // {
+        //     Vector3 screenPos = _mainCamera.WorldToScreenPoint(unit.transform.position);
+        //
+        //     if (screenPos.z > 0 && selectionRect.Contains(new Vector2(screenPos.x, screenPos.y)))
+        //     {
+        //         unit.SetLayer(_outlineLayer);
+        //         _currentlySelected.Add(unit);
+        //     }
+        //     else
+        //     {
+        //         unit.SetLayer(_groundLayer);
+        //     }
+        // }
+    }
+
+    private void ClearSelected()
+    {
+        foreach (UnitData un in _currentlySelected)
+        {
+            if (un) un.SetLayer(un.OriginalLayer);
+        }
+        _currentlySelected.Clear();
     }
 }

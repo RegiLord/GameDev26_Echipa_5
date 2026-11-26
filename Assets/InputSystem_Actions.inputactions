@@ -90,7 +90,7 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false,
@@ -547,7 +547,7 @@
                 {
                     "name": "Negative",
                     "id": "8090dd40-1998-4395-973e-33050279076e",
-                    "path": "<Keyboard>/z",
+                    "path": "<Mouse>/scroll/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -558,7 +558,7 @@
                 {
                     "name": "Positive",
                     "id": "b39303c7-f3c3-4b3e-9f81-9aaaab101862",
-                    "path": "<Keyboard>/x",
+                    "path": "<Mouse>/scroll/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -14,6 +14,9 @@ public class UnitData : MonoBehaviour
     public TeamID TeamID { get; private set; }
     public CellData CellData { get; private set; }
     
+    private Renderer[] _childRenderers;
+    public int OriginalLayer { get; private set; }
+    
     void Awake()
     {
         Collider = GetComponent<Collider>();
@@ -22,6 +25,9 @@ public class UnitData : MonoBehaviour
         MovementModule = GetComponent<MovementModule>();    
         AIController = GetComponent<AIController>();
 
+        _childRenderers = GetComponentsInChildren<Renderer>(true);
+        OriginalLayer = gameObject.layer;
+        
         if (AIController != null)
         {
             TeamID = AIController.teamID;
@@ -60,4 +66,11 @@ public class UnitData : MonoBehaviour
     }
 
     
+    public void SetLayer(int targetLayer)
+    {
+        for (int i = 0; i < _childRenderers.Length; i++)
+            _childRenderers[i].gameObject.layer = targetLayer;
+        
+        gameObject.layer = targetLayer; 
+    }
 }
